@@ -1,3 +1,5 @@
+//import json5
+
 var obj = {
 
     "first_name": "Vardan",
@@ -8,4 +10,17 @@ var obj = {
     
     "tumo_student": false
     
+    
+    
+    
     }
+
+console.log(obj)
+
+let a = new obj()
+///js_obj = '{x:1, y:2, z:3}'
+    
+//py_obj = json5.loads(js_obj)
+    
+//print(py_obj)
+    

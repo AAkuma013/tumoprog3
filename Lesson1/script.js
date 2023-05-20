@@ -177,7 +177,7 @@ var matrix = [
         0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2,
         1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
     ],
-];
+]; //server
 //var matrix = []
 //let n = parseInt(prompt("wegdfrgr")); 
 //et m = parseInt(prompt("dfbhfghng"));
@@ -207,7 +207,7 @@ let grassArr = [];
 let grassEaterArr = [];
 let wildArr = [];
 let zombieArr = [];
-let executerArr = [];
+let executerArr = [];//server
 
 function setup() {
 /*
@@ -227,7 +227,7 @@ function setup() {
     
     frameRate(5);
     createCanvas(matrix[0].length * side, matrix.length * side);
-    background("#acacac");
+    background("#acacac"); //client
     
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[0].length; x++) {
@@ -251,7 +251,7 @@ function setup() {
                 executerArr.push(executer);
             }
         }
-    }
+    }//server
     console.log(executerArr);
 }
 
@@ -281,7 +281,7 @@ function draw() {
                 fill("red");
                 exc++
             }
-            rect(x * side, y * side, side, side);
+            rect(x * side, y * side, side, side);//client
             
             //textSize(20);
             //fill("blue");
@@ -310,6 +310,6 @@ function draw() {
     }
     for (var i in executerArr) {
         executerArr[i].execute();
-    }
+    }//server
     
 }

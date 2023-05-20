@@ -5,7 +5,7 @@
 // var clickCount = 0;
 // function clickHandler(evt) {
 
-//     clickCount++;
+//     clickCount++; 
 
 // console.log(evt);
 // console.log(clickCount);

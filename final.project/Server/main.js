@@ -1,12 +1,9 @@
-// var Math = require("Math")
-// var logic = Math()
-import { random } from 'mathjs'
-var express = require("express");
+import random from "node_modules/random"
 
+var express = require("express");
 var app = express();
 
 app.use(express.static("../Client"));
-// logic.use(Math.static("./node_modules/Math"));
 
 app.get("/", function(req, res){
 
@@ -36,8 +33,8 @@ function kerparner(qanak, kerpar) {
     console.log(111);
     var a = 0;
     while (a < qanak) {
-        let x = Math.floor(random(0, 400));
-        let y = Math.floor(random(0, 400));
+        var x = Math.floor(random.int((min = 0), (max = 400)));
+        var y = Math.floor(random.int((min = 0), (max = 400)));
         if (matrix[y][x] == 0) {
             matrix[y][x] = kerpar
         }

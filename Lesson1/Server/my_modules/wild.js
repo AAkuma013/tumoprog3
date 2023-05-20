@@ -1,4 +1,5 @@
-class Wild extends LivingCreature {
+var LivingCreature = require("./ancestor")
+module.exports = class Wild extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 8;

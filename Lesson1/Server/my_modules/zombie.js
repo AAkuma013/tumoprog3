@@ -1,4 +1,5 @@
-class Zombie extends LivingCreature {
+var LivingCreature = require("./ancestor")
+module.exports = class Zombie extends LivingCreature {
   constructor(x, y, index) {
     super(x, y, index);
     this.energy = 20;

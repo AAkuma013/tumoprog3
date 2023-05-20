@@ -104,7 +104,7 @@ function draw() {
 }
 */
 //////////////////////////////
-var matrix = [
+/*var matrix = [
     [
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
         0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 4, 0,
@@ -177,8 +177,8 @@ var matrix = [
         0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2,
         1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
     ],
-]; //server
-//var matrix = []
+];*/ //server
+var matrix = []
 //let n = parseInt(prompt("wegdfrgr")); 
 //et m = parseInt(prompt("dfbhfghng"));
 
@@ -210,7 +210,7 @@ let zombieArr = [];
 let executerArr = [];//server
 
 function setup() {
-/*
+
     for (let i = 0; i < n; i++) {
         matrix.push([])
         for (let j = 0; j < m; j++) {
@@ -218,12 +218,12 @@ function setup() {
             
         }
     }
-    */
-    //kerparner(75,1)
-    //kerparner(50,2)
-   // kerparner(18,3)
-    //kerparner(7,4)
-    //kerparner(3,5)
+    
+    kerparner(75,1)
+    kerparner(50,2)
+    kerparner(18,3)
+    kerparner(7,4)
+    kerparner(3,5)
     
     frameRate(5);
     createCanvas(matrix[0].length * side, matrix.length * side);

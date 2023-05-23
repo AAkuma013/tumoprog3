@@ -11,6 +11,7 @@ function setup() {
 
 side = 120
 function my_draw(matrix) {
+    side = 120
     var grr = 0
     var grrEtt =  0
     var wld = 0

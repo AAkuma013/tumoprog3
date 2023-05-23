@@ -203,11 +203,11 @@ function kerparner(qanak, kerpar) {
 
 var side = 120;
 
-let grassArr = [];
-let grassEaterArr = [];
-let wildArr = [];
-let zombieArr = [];
-let executerArr = [];//server
+var grassArr = [];
+var grassEaterArr = [];
+var wildArr = [];
+var zombieArr = [];
+var executerArr = [];//server
 
 function setup() {
 

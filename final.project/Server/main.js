@@ -1,12 +1,4 @@
 //import random from "node_modules/random"
-side = 120
-
-matrix = [];
-grassArr = [];
-grassEaterArr = [];
-wildArr = [];
-zombieArr = [];
-executerArr = [];
 ////////
 var server = require('http').createServer(app);
 
@@ -19,16 +11,25 @@ var app = express();
 app.use(express.static("../Client"));
 
 app.get("/", function(req, res){
-
-res.redirect("index.html");
-
+    
+    res.redirect("index.html");
+    
 });
 
 server.listen(3000, function(){
-
-console.log("Game is running in port 3000 :)");
-
+    
+    console.log("Game is running in port 3000 :)");
+    
 });
+
+side = 120
+
+matrix = [];
+grassArr = [];
+grassEaterArr = [];
+wildArr = [];
+zombieArr = [];
+executerArr = [];
 
 var Grass = require("./my_modules/grass")
 var GrassEater = require("./my_modules/grassEater")
@@ -37,6 +38,7 @@ var Zombie = require("./my_modules/zombie")
 var Executer = require("./my_modules/executer")
 
 function createObj() {
+
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[0].length; x++) {
             if (matrix[y][x] === 1) {
@@ -51,11 +53,11 @@ function createObj() {
                 wildArr.push(wild);
             }
             else if (matrix[y][x] == 4) {
-                let zombie = new Zombie(x, y, 3);
+                let zombie = new Zombie(x, y, 4);
                 zombieArr.push(zombie);
             }
             else if (matrix[y][x] == 5) {
-                let executer = new Executer(x, y, 3);
+                let executer = new Executer(x, y, 5);
                 executerArr.push(executer);
             }
         }

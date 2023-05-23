@@ -34,6 +34,7 @@ module.exports = class Wild extends LivingCreature {
     mul() {
         let newCells = this.chooseCell(0)
         let newCell =newCells[Math.floor(Math.random()*newCells.length)]
+        //console.log(newCell);
         if (newCell) {
             var newWild = new Wild(newCell[0], newCell[1], this.index);
             wildArr.push(newWild);
@@ -48,6 +49,7 @@ module.exports = class Wild extends LivingCreature {
         //console.log(this.energy);
         let newCells = this.chooseCell(0)
         let newCell =newCells[Math.floor(Math.random()*newCells.length)]
+        
         if (newCell) {
 
             let newX = newCell[0]

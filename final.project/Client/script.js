@@ -9,7 +9,7 @@ function setup() {
     
 }
 
-
+side = 120
 function my_draw(matrix) {
     var grr = 0
     var grrEtt =  0

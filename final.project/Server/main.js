@@ -1,4 +1,6 @@
 //import random from "node_modules/random"
+side = 120
+
 matrix = [];
 grassArr = [];
 grassEaterArr = [];
@@ -61,12 +63,30 @@ function createObj() {
 }
 
 
+function game() {
+    for (var i in grassArr) {
+        grassArr[i].mul();
+    }
+    for (var i in grassEaterArr) {
+        grassEaterArr[i].eat();
+    }
+    for (var i in wildArr) {
+        wildArr[i].eat();
+    }
+    for (var i in zombieArr) {
+        zombieArr[i].tox();
+    }
+    for (var i in executerArr) {
+        executerArr[i].execute();
+    }//server
+    io.sockets.emit("my_matrix", matrix)
+}
 // var x = Math.floor(random(0, 400));
 // var y = Math.floor(random(0, 400));
 
 function kerparner(qanak, kerpar) {
-    console.log("asd")
-    console.log(111);
+    //console.log("asd")
+    //console.log(111);
     var a = 0;
     while (a < qanak) {
         var x = Math.floor(Math.random()*50);
@@ -102,21 +122,3 @@ io.on('connection', function (socket) {
     
     });
 
-    function game() {
-        for (var i in grassArr) {
-            grassArr[i].mul();
-        }
-        for (var i in grassEaterArr) {
-            grassEaterArr[i].eat();
-        }
-        for (var i in wildArr) {
-            wildArr[i].eat();
-        }
-        for (var i in zombieArr) {
-            zombieArr[i].tox();
-        }
-        for (var i in executerArr) {
-            executerArr[i].execute();
-        }//server
-        io.sockets.emit("my_matrix", matrix)
-    }

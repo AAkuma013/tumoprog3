@@ -2,7 +2,8 @@
 ////////
 var server = require('http').createServer(app);
 
- io = require('socket.io')(server);
+
+var io = require('socket.io')(server);
 
 ////////
 var express = require("express");
@@ -16,13 +17,21 @@ app.get("/", function(req, res){
     //res.end("hello node")
 });
 
-server.listen(3000, function(){
-    
-    console.log("Game is running in port 3000 :)");
+io.on('connection', function (socket) {
+    console.log("jello");
+    socket.emit("my_matrix", matrix )
     
 });
 
-side = 120
+server.listen(3000, function(){
+        
+    console.log("Game is running in port 3000 :)");
+            
+});
+
+
+
+side = 25
 
 matrix = [];
 grassArr = [];
@@ -38,7 +47,7 @@ var Zombie = require("./my_modules/zombie")
 var Executer = require("./my_modules/executer")
 
 function createObj() {
-
+    
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[0].length; x++) {
             if (matrix[y][x] === 1) {
@@ -91,8 +100,8 @@ function kerparner(qanak, kerpar) {
     //console.log(111);
     var a = 0;
     while (a < qanak) {
-        var x = Math.floor(Math.random()*50);
-        var y = Math.floor(Math.random()*50);
+        var x = Math.floor(Math.random()*25);
+        var y = Math.floor(Math.random()*25);
         if (matrix[y][x] == 0) {
             matrix[y][x] = kerpar
         }
@@ -100,27 +109,23 @@ function kerparner(qanak, kerpar) {
     }
 }
 
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 25; i++) {
     matrix.push([])
-    for (let j = 0; j < 50; j++) {
+    for (let j = 0; j < 25; j++) {
         matrix[i].push(0)
         
     }
 }
 
-kerparner(75,1)
+kerparner(200,1)
 kerparner(50,2)
-kerparner(18,3)
-kerparner(7,4)
-kerparner(3,5)
+kerparner(25,3)
+kerparner(20,4)
+kerparner(6,5)
 console.log(matrix)
 
 createObj()
-setInterval(game, 500)
-/////////
-io.on('connection', function (socket) {
-    socket.emit("my_matrix",matrix )
-    
-    
-    });
+setInterval(game, 200)
 
+/////////
+    

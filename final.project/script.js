@@ -201,7 +201,7 @@ function kerparner(qanak, kerpar) {
 
 
 
-var side = 120;
+var side = 25;
 
 var grassArr = [];
 var grassEaterArr = [];

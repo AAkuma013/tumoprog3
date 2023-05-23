@@ -24,7 +24,8 @@ module.exports = class Executer extends LivingCreature {
         return super.chooseCell(character,character2);
     }
     mul() {
-        var newCell = random(this.chooseCell(0));
+        let newCells = this.chooseCell(0)
+        let newCell =newCells[Math.floor(Math.random()*newCells.length)]
         if (newCell) {
             var newExecuter = new Executer(newCell[0], newCell[1], this.index);
             executerArr.push(newExecuter);
@@ -36,9 +37,9 @@ module.exports = class Executer extends LivingCreature {
 
         this.energy--
 
-        console.log(this.energy);
-        let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
+        //console.log(this.energy);
+        let newCells = this.chooseCell(0)
+        let newCell =newCells[Math.floor(Math.random()*newCells.length)]
         if (newCell) {
 
             let newX = newCell[0]
@@ -56,7 +57,7 @@ module.exports = class Executer extends LivingCreature {
     execute() {
 
         let foods = this.chooseCell(1,4)
-        let food = random(foods)
+        let food = foods[Math.floor(Math.random()*foods.length)]
         if (food) {
             this.energy++
             matrix[this.y][this.x] = 0

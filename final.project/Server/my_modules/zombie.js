@@ -39,9 +39,9 @@ module.exports = class Zombie extends LivingCreature {
     move() {
       this.energy--;
   
-      console.log(this.energy);
-      let emptyCells = this.chooseCell(0);
-      let newCell = random(emptyCells);
+      //console.log(this.energy);
+      let newCells = this.chooseCell(0)
+      let newCell =newCells[Math.floor(Math.random()*newCells.length)]
       if (newCell) {
         let newX = newCell[0];
         let newY = newCell[1];
@@ -56,12 +56,12 @@ module.exports = class Zombie extends LivingCreature {
     }
   
     tox() {
-      let foods = this.chooseCell(2, 3);
-      let food = random(foods);
+      let foods = this.chooseCell(2,3)
+      let food =foods[Math.floor(Math.random()*foods.length)]
       let grasses = this.chooseCell(1,1)
-      let grass = random(grasses)
+      let grass =grasses[Math.floor(Math.random()*grasses.length)]
       let voids = this.chooseCell(0,0)
-      let voidPlace = random(voids)
+      let voidPlace =voids[Math.floor(Math.random()*voids.length)]
       if (food) {
         this.energy++;
         let newX = food[0];

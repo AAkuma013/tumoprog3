@@ -4,7 +4,7 @@ socket.on("my_matrix", my_draw)
 function setup() {
     frameRate(5);
     //createCanvas(matrix[0].length * side, matrix.length * side);
-    createCanvas(400,400)
+    createCanvas(6000,6000)
     background("#acacac"); //client
     
 }

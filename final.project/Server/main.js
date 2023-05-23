@@ -13,7 +13,7 @@ app.use(express.static("../Client"));
 app.get("/", function(req, res){
     
     res.redirect("index.html");
-    
+    //res.end("hello node")
 });
 
 server.listen(3000, function(){
@@ -116,7 +116,7 @@ kerparner(3,5)
 console.log(matrix)
 
 createObj()
-setInterval(game, 1000)
+setInterval(game, 500)
 /////////
 io.on('connection', function (socket) {
     socket.emit("my_matrix",matrix )

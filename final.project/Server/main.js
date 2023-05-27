@@ -17,17 +17,7 @@ var server = require('http').createServer(app);
 
 
 var io = require('socket.io')(server);
-io.on('connection', function (socket) {
-    console.log("jello");
-    socket.emit("my_matrix", matrix )
-    
-});
 
-server.listen(3000, function(){
-        
-    console.log("Game is running in port 3000 :)");
-            
-});
 
 
 
@@ -75,8 +65,10 @@ function createObj() {
 
 
 function game() {
+    console.log("asd")
     for (var i in grassArr) {
         grassArr[i].mul();
+        console.log("eeeeeeeeeeee")
     }
     for (var i in grassEaterArr) {
         grassEaterArr[i].eat();
@@ -95,6 +87,14 @@ function game() {
 // var x = Math.floor(random(0, 400));
 // var y = Math.floor(random(0, 400));
 
+for (let i = 0; i < 25; i++) {
+    matrix.push([])
+    for (let j = 0; j < 25; j++) {
+        matrix[i].push(0)
+        
+    }
+}
+
 function kerparner(qanak, kerpar) {
     //console.log("asd")
     //console.log(111);
@@ -109,27 +109,39 @@ function kerparner(qanak, kerpar) {
     }
 }
 
-for (let i = 0; i < 25; i++) {
-    matrix.push([])
-    for (let j = 0; j < 25; j++) {
-        matrix[i].push(0)
-        
-    }
-}
 
-kerparner(400,1)
-kerparner(30,2)
-kerparner(15,3)
-kerparner(2,4)
-kerparner(15,5)
-console.log(matrix)
+// kerparner(400,1)
+// kerparner(30,2)
+// kerparner(15,3)
+// kerparner(2,4)
+// kerparner(15,5)
+// console.log(matrix)
 
-createObj()
-socket.on("start", function startTheGame() {
-    setInterval(game, 500)
-})
+// createObj()
+
     
-
+io.on('connection', function (socket) {
+    console.log("jello");
+    socket.emit("my_matrix", matrix )
+   
+    socket.on("start",a)
+    
+});
+function a (){
+  
+ kerparner(400,1)
+    kerparner(30,2)
+    kerparner(15,3)
+    kerparner(2,4)
+    kerparner(15,5)
+    createObj()
+ setInterval (game, 1000)
+}
+server.listen(3000, function(){
+        
+    console.log("Game is running in port 3000 :)");
+            
+});
 
 
 /////////

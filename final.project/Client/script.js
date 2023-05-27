@@ -17,6 +17,7 @@ function my_draw(matrix) {
     var wld = 0
     var zmb = 0
     var exc = 0
+    console.log(matrix)
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
@@ -54,8 +55,8 @@ function my_draw(matrix) {
     }
     //add event listener
     var start = document.getElementById("start")
-    // console.log(start)
-    start.addEventListener("click", socket.emit("start",start))
+    console.log(start)
+    start.addEventListener("click",() => socket.emit("start",start))
 
     // for (var i in grassArr) {
     //     grassArr[i].mul();

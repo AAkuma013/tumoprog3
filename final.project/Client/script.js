@@ -4,14 +4,14 @@ socket.on("my_matrix", my_draw)
 function setup() {
     frameRate(5);
     //createCanvas(matrix[0].length * side, matrix.length * side);
-    createCanvas(625,625)
+    createCanvas(1250,1250)
     background("#acacac"); //client
     
 }
 
-side = 25
+side = 50
 function my_draw(matrix) {
-    side = 25
+    side = 50
     var grr = 0
     var grrEtt =  0
     var wld = 0
@@ -52,6 +52,11 @@ function my_draw(matrix) {
 
         }
     }
+    //add event listener
+    var start = document.getElementById("start")
+    // console.log(start)
+    start.addEventListener("click", socket.emit("start",start))
+
     // for (var i in grassArr) {
     //     grassArr[i].mul();
     // }

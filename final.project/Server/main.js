@@ -1,9 +1,6 @@
 //import random from "node_modules/random"
 ////////
-var server = require('http').createServer(app);
 
-
-var io = require('socket.io')(server);
 
 ////////
 var express = require("express");
@@ -16,7 +13,10 @@ app.get("/", function(req, res){
     res.redirect("index.html");
     //res.end("hello node")
 });
+var server = require('http').createServer(app);
 
+
+var io = require('socket.io')(server);
 io.on('connection', function (socket) {
     console.log("jello");
     socket.emit("my_matrix", matrix )
@@ -31,7 +31,7 @@ server.listen(3000, function(){
 
 
 
-side = 25
+side = 50
 
 matrix = [];
 grassArr = [];
@@ -117,15 +117,20 @@ for (let i = 0; i < 25; i++) {
     }
 }
 
-kerparner(200,1)
-kerparner(50,2)
-kerparner(25,3)
-kerparner(20,4)
-kerparner(6,5)
+kerparner(400,1)
+kerparner(30,2)
+kerparner(15,3)
+kerparner(2,4)
+kerparner(15,5)
 console.log(matrix)
 
 createObj()
-setInterval(game, 200)
+socket.on("start", function startTheGame() {
+    setInterval(game, 500)
+})
+    
+
+
 
 /////////
     

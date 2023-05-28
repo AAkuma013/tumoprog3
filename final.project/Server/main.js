@@ -135,7 +135,7 @@ function a (){
     kerparner(4,4)
     kerparner(15,5)
     createObj()
-    setInterval (game, 500)
+    setInterval (game, 300)
 }
 server.listen(3000, function(){
         

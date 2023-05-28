@@ -2,7 +2,7 @@ var socket = io()
 socket.on("my_matrix", my_draw)
 
 function setup() {
-    frameRate(5);
+    frameRate(60);
     //createCanvas(matrix[0].length * side, matrix.length * side);
     createCanvas(1250,1250)
     background("#acacac"); //client

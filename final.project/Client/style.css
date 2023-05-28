@@ -7,7 +7,7 @@
 	box-sizing: border-box;
 }
 body{
-	background-color: #1a1a1d;
+	background-color: #0b0c10;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -21,7 +21,7 @@ body{
 }
 .header{
 	height: 75px;
-	background-color: #4e4e50;
+	background-color: #1f2833;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -33,18 +33,18 @@ body{
 	width: 100%;
 }
 .logo{
-	color: #c3073f;
+	color: #66fcf1;
 	margin-left: 20px;
 }
 .logo h1 a{
 	text-transform: uppercase;
 	text-decoration: none;
-	color: #950740;
+	color: #66fcf1;
 	font-family: 'Bungee', cursive;
 }
 .text{
 	width: 1250px;
-	color: white;
+	color: #c5c6c7;
 	margin-right: 90px;
 	margin-left: 55px;
 
@@ -52,7 +52,7 @@ body{
 .text .vern{
 	text-transform: uppercase;
 	font-size: 80px;
-	color: #c3073f;
+	color: #45a29e;
     margin-top: 100px;
 }
 .text p{
@@ -71,46 +71,46 @@ body{
 .stat ul li{
     text-transform: uppercase;
 	font-size: 25px;
-	color: white;
+	color: #0b0c10;
     margin-top: 20px;
-    margin-right: 90px;
-	margin-left: 55px;
+    margin-right: 5px;
+	margin-left: 5px;
 	list-style: none;
 
 }
 
 .stat ul .grr{
 	background-color: green;
-	padding: 3px 20px 3px 20px;
-	border-radius: 15px;
-	margin-left: 125px;
-	box-shadow: 3px 3px;
+	padding: 8px 27px 8px 27px;
+	border-radius: 5px;
+	margin-left: 50px;
+	box-shadow: 3px 3px #c5c6c7;
 }
 .stat ul .ett{
 	background-color: yellow;
-	padding: 3px 20px 3px 20px;
-	border-radius: 15px;
-	
-	box-shadow: 3px 3px;
+	padding: 8px 27px 8px 27px;
+	border-radius: 5px;
+	margin-left: 0px;
+	box-shadow: 3px 3px #c5c6c7;
 }
 .stat ul .wld{
 	background-color: orange;
-	padding: 3px 20px 3px 20px;
-	border-radius: 15px;
-	
-	box-shadow: 3px 3px;
+	padding: 8px 27px 8px 27px;
+	border-radius: 5px;
+	margin-left: 0px;
+	box-shadow: 3px 3px #c5c6c7;
 }
 .stat ul .zmb{
 	background-color: blue;
-	padding: 3px 20px 3px 20px;
-	border-radius: 15px;
-	
-	box-shadow: 3px 3px;
+	padding: 8px 27px 8px 27px;
+	border-radius: 5px;
+	margin-left: 0px;
+	box-shadow: 3px 3px #c5c6c7;
 }
 .stat ul .exc{
 	background-color: red;
-	padding: 3px 20px 3px 20px;
-	border-radius: 15px;
-	
-	box-shadow: 3px 3px;
+	padding: 8px 27px 8px 27px;
+	border-radius: 5px;
+	margin-left: 0px;
+	box-shadow: 3px 3px #c5c6c7;
 }

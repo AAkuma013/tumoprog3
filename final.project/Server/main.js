@@ -65,10 +65,10 @@ function createObj() {
 
 
 function game() {
-    console.log("asd")
+    //console.log("asd")
     for (var i in grassArr) {
         grassArr[i].mul();
-        console.log("eeeeeeeeeeee")
+        //console.log("eeeeeeeeeeee")
     }
     for (var i in grassEaterArr) {
         grassEaterArr[i].eat();
@@ -129,13 +129,13 @@ io.on('connection', function (socket) {
 });
 function a (){
   
- kerparner(400,1)
+    kerparner(300,1)
     kerparner(30,2)
     kerparner(15,3)
-    kerparner(2,4)
+    kerparner(4,4)
     kerparner(15,5)
     createObj()
- setInterval (game, 1000)
+    setInterval (game, 500)
 }
 server.listen(3000, function(){
         

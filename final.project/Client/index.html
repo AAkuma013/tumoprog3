@@ -2,22 +2,23 @@
 <html lang="en">
 
 <head>
-    <style>
+    <!-- <style>
         #dom{
-            font-size: 150px;
-            color: rgb(0, 0, 0);
+            font-size: 100px;
+            
         }
         p{
             font-size: 50px;
-            color:rgb(0, 0, 0);
+            
         }
 
 
-    </style>
+    </style> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <!-- <script src="ancestor.js"></script>
@@ -27,20 +28,37 @@
     <script src="wild.js"></script>
     <script src="zombie.js"></script>
     <script src="executer.js"></script> -->
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 
 <body>
-   
-
-    <h1 id="dom">Կերպարների դերը</h1>
-    <p>1.Կանաչ-խոտ որը տարածվում է ամբողջ դաշտով(grass), 2.դեղին-խոտակեր(grassEater), 3.գազարագույն-ուտում է և՛ խոտ, և՛ խոտակեր(wild),4.կապույտ-զոմբի, շարժվում է շախմատի փղի նման անկյունագծերով իր հարևան վանդակում գտնվող խոտակերին կամ wild-ին դարձնում է զոմբի, խոտի մեջ չի կարող շարժվել, 5.կարմիր-(executer)շարժվում է շախմատի նավակի նման,կարող է անցնել խոտի միջով այն ոչնչացնելով,նպատակը` վերացնել զոմբիներին</p>
-    <p id = "gagulik"></p>
-    <p id="ett"></p>
-    <p id="wld"></p>
-    <p id="zmb"></p>
-    <p id="exc"></p>
-    <button id="start">Start</button>
+    <div class="header">
+		<div class="logo">
+		    <h1><a href="localhost:3000">MatrixWorld</a></h1>		
+		</div>
+    </div>
+    <div class="text"> 
+        <h1  class="vern">Կերպարների դերը</h1> 
+        <p>1.Grass-խոտ որը տարածվում է ամբողջ դաշտով</p>
+        <p> 2.GrassEater-խոտակեր</p>
+        <p>3.Wild-ուտում է և՛ խոտ, և՛ խոտակեր</p>
+        <p>4.Zombie-շարժվում է շախմատի փղի նման` անկյունագծերով և իր հարևան վանդակում գտնվող Grass-ին կամ Wild-ին դարձնում է զոմբի, խոտի մեջ չի կարող շարժվել</p>
+        <p>5.Executer-շարժվում է շախմատի նավակի նման,կարող է անցնել խոտի միջով այն ոչնչացնելով,նպատակը` վերացնել զոմբիներին</p>
+    </div>
+    <div class="stat">
+        <ul>
+            <li id = "gagulik" class="grr"></li>
+            <li id="ett" class="ett"></li>
+            <li id="wld" class="wld"></li>
+            <li id="zmb" class="zmb"></li>
+            <li id="exc" class="exc"></li>
+        </ul>
+    </div>
+    <div>
+        <button id="start">Start</button>
+    </div>
+        
 </body>
 
 </html>

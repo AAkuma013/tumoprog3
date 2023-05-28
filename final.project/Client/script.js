@@ -55,7 +55,7 @@ function my_draw(matrix) {
     }
     //add event listener
     var start = document.getElementById("start")
-    console.log(start)
+    //console.log(start)
     start.addEventListener("click",() => socket.emit("start",start))
 
     // for (var i in grassArr) {

@@ -144,9 +144,15 @@ function spring() {
         
     }
     for (let j = 0; j < grassEaterArr.length; j++) {
-        console.log(grassEaterArr[i].energy);
-        grassEaterArr[i].energy = grassEaterArr[i].energy + 6
-        console.log(grassEaterArr[i].energy);
+        console.log(grassEaterArr[j].energy);
+        grassEaterArr[j].energy = grassEaterArr[j].energy + 6
+        console.log(grassEaterArr[j].energy);
+        
+    }
+    for (let j = 0; j < grassEaterArr.length; j++) {
+        console.log(grassEaterArr[j].energy);
+        grassEaterArr[j].energy = grassEaterArr[j].energy + 6
+        console.log(grassEaterArr[j].energy);
         
     }
     

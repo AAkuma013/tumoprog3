@@ -89,7 +89,7 @@ function game() {
 
 for (let i = 0; i < 25; i++) {
     matrix.push([])
-    for (let j = 0; j < 25; j++) {
+    for (let j = 0; j < 50; j++) {
         matrix[i].push(0)
         
     }
@@ -100,7 +100,7 @@ function kerparner(qanak, kerpar) {
     //console.log(111);
     var a = 0;
     while (a < qanak) {
-        var x = Math.floor(Math.random()*25);
+        var x = Math.floor(Math.random()*50);
         var y = Math.floor(Math.random()*25);
         if (matrix[y][x] == 0) {
             matrix[y][x] = kerpar
@@ -123,20 +123,43 @@ function kerparner(qanak, kerpar) {
 io.on('connection', function (socket) {
     console.log("jello");
     socket.emit("my_matrix", matrix )
-   
-    socket.on("start",a)
+    socket.on("start",start)
+    socket.on("spring", () => setInterval(spring, 300))
     
 });
-function a (){
+function start(){
   
-    kerparner(300,1)
-    kerparner(30,2)
-    kerparner(15,3)
-    kerparner(4,4)
-    kerparner(15,5)
+    kerparner(600,1)
+    kerparner(50,2)
+    kerparner(25,3)
+    kerparner(8,4)
+    kerparner(25,5)
     createObj()
     setInterval (game, 300)
 }
+
+function spring() {
+    for (let i = 0; i < grassArr.length; i++) {
+        grassArr[i].multiply = 16
+        
+    }
+    for (let j = 0; j < grassEaterArr.length; j++) {
+        console.log(grassEaterArr[i].energy);
+        grassEaterArr[i].energy = grassEaterArr[i].energy + 6
+        console.log(grassEaterArr[i].energy);
+        
+    }
+    
+    // for (let y = 0; y < matrix.length; y++) {
+    //     for (let x = 0; x < matrix[y].length; x++) {
+    //         if (matrix[y][x] == 1) {
+               
+    //         }
+    //     }
+        
+    // }
+}
+
 server.listen(3000, function(){
         
     console.log("Game is running in port 3000 :)");

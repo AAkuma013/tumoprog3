@@ -4,10 +4,12 @@ socket.on("my_matrix", my_draw)
 function setup() {
     frameRate(60);
     //createCanvas(matrix[0].length * side, matrix.length * side);
-    createCanvas(1250,1250)
+    createCanvas(2500,1250)
     background("#acacac"); //client
-    
+    canvas.className = "mycanvas";
 }
+//var canvas = getElementById("defaultCanvas0")
+
 
 side = 50
 function my_draw(matrix) {
@@ -17,7 +19,7 @@ function my_draw(matrix) {
     var wld = 0
     var zmb = 0
     var exc = 0
-    console.log(matrix)
+    //console.log(matrix)
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
@@ -26,16 +28,16 @@ function my_draw(matrix) {
             } else if (matrix[y][x] == 0) {
                 fill("#acacac");
             } else if (matrix[y][x] == 2) {
-                fill("yellow");
+                fill("#ffe400");
                 grrEtt++
             } else if (matrix[y][x] === 3) {
-                fill("orange");
+                fill("orangered");
                 wld++
             } else if (matrix[y][x] === 4) {
                 fill("blue");
                 zmb++
             } else if (matrix[y][x] === 5) {
-                fill("red");
+                fill("#eb0000");
                 exc++
             }
             rect(x * side, y * side, side, side);//client
@@ -57,7 +59,9 @@ function my_draw(matrix) {
     var start = document.getElementById("start")
     //console.log(start)
     start.addEventListener("click",() => socket.emit("start",start))
-
+    
+    var spring = document.getElementById("spring")
+    spring.addEventListener("click", ()  => socket.emit("spring", spring))
     // for (var i in grassArr) {
     //     grassArr[i].mul();
     // }

@@ -13,7 +13,7 @@ body{
 	background-size: cover;
 }
 .main{
-	min-height: 1000px;
+	min-height: 575px;
 	align-items: flex-start;
 	justify-content: space-around;
 	margin-top: 80px;
@@ -45,8 +45,9 @@ body{
 .text{
 	width: 1250px;
 	color: #c5c6c7;
-	margin-right: 90px;
-	margin-left: 55px;
+	margin-right: 0px;
+	margin-left: 20px;
+	
 
 }
 .text .vern{
@@ -54,6 +55,13 @@ body{
 	font-size: 80px;
 	color: #45a29e;
     margin-top: 100px;
+}
+.weath h1{
+	text-transform: uppercase;
+	font-size: 55px;
+	color: #45a29e;
+	margin-left: 520px;
+    
 }
 .text p{
     font-size: 30px;
@@ -63,12 +71,26 @@ body{
     justify-content: space-around;
 	
 }
-.stat ul{
+.mng{
+    justify-content: space-around;
+	width: 2500px;
+	display: flex;
+}
+.mng .starter{
+	width: 1250px;
+	margin-right: 0px;
+}
+.mng .weath{
+	width: 1250px;
+	margin-right: 0px;
+}
+
+.stat ul, .weath ul{
 	display: flex;
 	width: 1250px;
 	justify-content: space-around;
 }
-.stat ul li{
+.stat ul li, .weath ul li button{
     text-transform: uppercase;
 	font-size: 25px;
 	color: #0b0c10;
@@ -87,14 +109,14 @@ body{
 	box-shadow: 3px 3px #c5c6c7;
 }
 .stat ul .ett{
-	background-color: yellow;
+	background-color: #ffe400;
 	padding: 8px 27px 8px 27px;
 	border-radius: 5px;
 	margin-left: 0px;
 	box-shadow: 3px 3px #c5c6c7;
 }
 .stat ul .wld{
-	background-color: orange;
+	background-color: orangered;
 	padding: 8px 27px 8px 27px;
 	border-radius: 5px;
 	margin-left: 0px;
@@ -108,9 +130,103 @@ body{
 	box-shadow: 3px 3px #c5c6c7;
 }
 .stat ul .exc{
-	background-color: red;
+	background-color: #eb0000;
 	padding: 8px 27px 8px 27px;
 	border-radius: 5px;
 	margin-left: 0px;
 	box-shadow: 3px 3px #c5c6c7;
+}
+.weath ul li button{
+	padding: 8px 27px 8px 27px;
+	border-radius: 1px;	
+	margin-left: 50px;
+	margin-bottom: 30px;
+}
+.weath ul .spring{
+	background-color: lightgreen;
+	box-shadow: 5px 5px darkgreen;
+}
+.weath ul .summer{
+	background-color: yellow;
+	box-shadow: 5px 5px darkgoldenrod;
+}
+.weath ul .autumn{
+	background-color: orange;
+	box-shadow: 5px 5px orangered;
+}
+.weath ul .winter{
+	background-color: white;
+	box-shadow: 5px 5px whitesmoke;
+}
+.staRt{
+	background-color: #66fcf1;
+	padding: 0px 25px;
+	text-align: center;
+	font-size: 30px;
+	text-align: center;
+	text-transform: capitalize;
+	font-family: 'Bungee', cursive;
+	cursor: pointer;
+	outline: none;
+	color: #0b0c10;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 3px 5px #c5c6c7;
+	margin-top: 20px;
+	margin-left: 573px;
+	margin-bottom: 10px;
+}
+.staRt:hover {background-color: #45a29e}
+
+.staRt:active {
+  background-color: #45a29e;
+  box-shadow: 3px 5px #666;
+  transform: translateY(4px);
+}
+.weath ul li button{
+	text-align: center;
+	text-transform: capitalize;
+	font-family: 'Bungee', cursive;
+	cursor: pointer;
+	outline: none;
+	color: #0b0c10;
+	border: none;
+}
+.weath ul li .spring:hover{background-color: green}
+.weath ul li .summer:hover{background-color: darkorange}
+.weath ul li .autumn:hover{background-color: orangered}
+.weath ul li .winter:hover{background-color: gray}
+
+.weath ul li .spring:active {
+	background-color: green;
+	box-shadow: 3px 5px darkgreen;
+	transform: translateY(4px);
+}
+  .weath ul li .summer:active {
+	background-color: darkorange;
+	box-shadow: 3px 5px rgb(211, 121, 10);
+	transform: translateY(4px);
+}
+.weath ul li .autumn:active {
+	background-color: orangered;
+	box-shadow: 3px 5px rgb(214, 57, 0);
+	transform: translateY(4px);
+}
+.weath ul li .winter:active {
+	background-color: grey;
+	box-shadow: 3px 5px rgb(97, 97, 97);
+	transform: translateY(4px);
+}
+
+
+.mycanvas{
+	margin-left: 20px;
+	padding: 25px 25px;
+	background-color: #1f2833;
+	border-radius: 5px;
+	box-shadow: 5px 5px 13px #45a29e;
+	margin-bottom: 20px;
+}
+.weath .title{
+	color: wheat;
 }

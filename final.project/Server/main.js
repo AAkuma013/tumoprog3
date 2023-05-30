@@ -34,7 +34,8 @@ var Grass = require("./my_modules/grass")
 var GrassEater = require("./my_modules/grassEater")
 var Wild = require("./my_modules/wild")
 var Zombie = require("./my_modules/zombie")
-var Executer = require("./my_modules/executer")
+var Executer = require("./my_modules/executer");
+const { log } = require("console");
 
 function createObj() {
     
@@ -125,7 +126,8 @@ io.on('connection', function (socket) {
     socket.emit("my_matrix", matrix )
     socket.on("start",start)
     socket.on("spring", () => setInterval(spring, 300))
-    
+    socket.on("summer", () => setInterval(summer, 300))
+
 });
 function start(){
   
@@ -144,27 +146,60 @@ function spring() {
         
     }
     for (let j = 0; j < grassEaterArr.length; j++) {
-        console.log(grassEaterArr[j].energy);
-        grassEaterArr[j].energy = grassEaterArr[j].energy + 6
-        console.log(grassEaterArr[j].energy);
+        //console.log(grassEaterArr[j].energy);
+        grassEaterArr[j].energy = grassEaterArr[j].energy + 4
+        //console.log(grassEaterArr[j].energy);
         
     }
-    for (let j = 0; j < grassEaterArr.length; j++) {
-        console.log(grassEaterArr[j].energy);
-        grassEaterArr[j].energy = grassEaterArr[j].energy + 6
-        console.log(grassEaterArr[j].energy);
+    for (let j = 0; j < wildArr.length; j++) {
+        //console.log(grassEaterArr[j].energy);
+        wildArr[j].energy = wildArr[j].energy - 1
+        //console.log(grassEaterArr[j].energy);
         
     }
-    
+    for (let j = 0; j < zombieArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        let newDirections = [
+            [zombieArr[j].x + 1, zombieArr[j].y - 1],
+            [zombieArr[j].x + 1, zombieArr[j].y + 1],
+         ];
+        zombieArr[j].directions = newDirections
+
+        //console.log(zombieArr[j].directions);  
+    }
+    for (let j = 0; j < executerArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        let newDirections = [
+            [executerArr[j].x, executerArr[j].y + 1],
+            [executerArr[j].x + 1, executerArr[j].y + 1],
+            [executerArr[j].x + 1, executerArr[j].y],
+            [executerArr[j].x + 1, executerArr[j].y - 1],
+            [executerArr[j].x, executerArr[j].y - 1],
+            [executerArr[j].x - 1, executerArr[j].y - 1],
+            [executerArr[j].x - 1, executerArr[j].y],
+            [executerArr[j].x - 1, executerArr[j].y + 1],
+            
+         ];
+        executerArr[j].directions = newDirections
+     //executerArr[j].energy= executerArr[j].energy + 0.5
+
+        //console.log(executerArr[j].directions);  
+    }
     // for (let y = 0; y < matrix.length; y++) {
     //     for (let x = 0; x < matrix[y].length; x++) {
     //         if (matrix[y][x] == 1) {
                
     //         }
     //     }
-        
     // }
 }
+
+
+
+
+
+
+
 
 server.listen(3000, function(){
         

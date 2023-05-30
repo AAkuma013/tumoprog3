@@ -62,6 +62,9 @@ function my_draw(matrix) {
     
     var spring = document.getElementById("spring")
     spring.addEventListener("click", ()  => socket.emit("spring", spring))
+
+    var summer = document.getElementById("summer")
+    summer.addEventListener("click", ()  => socket.emit("summer", summer))
     // for (var i in grassArr) {
     //     grassArr[i].mul();
     // }

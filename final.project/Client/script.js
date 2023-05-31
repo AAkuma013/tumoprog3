@@ -20,10 +20,29 @@ function my_draw(matrix) {
     var zmb = 0
     var exc = 0
     //console.log(matrix)
+    var clrr = "green"
+    var spring = document.getElementById("spring")
+    // function retrn() {
+    //     if (spring.clicked == true) {
+    //         return "white"
+    //     }else{
+    //         console.log(spring.clicked);
+    //         return "green"
+    //     }
+    // }
+    spring.onclick = 
+
+    
+    spring.addEventListener("click", () => {
+        socket.emit("spring", "spring");
+        ess = "spring";
+        document.getElementById("weather").innerHTML = "weather: " + ess
+    })
+
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
-                fill("green");
+                fill(retrn());
                 grr++
             } else if (matrix[y][x] == 0) {
                 fill("#acacac");
@@ -60,11 +79,31 @@ function my_draw(matrix) {
     //console.log(start)
     start.addEventListener("click",() => socket.emit("start",start))
     
-    var spring = document.getElementById("spring")
-    spring.addEventListener("click", ()  => socket.emit("spring", spring))
+ 
+    var ess
+    
+    //
+
 
     var summer = document.getElementById("summer")
-    summer.addEventListener("click", ()  => socket.emit("summer", summer))
+    summer.addEventListener("click", ()  => {
+        socket.emit("summer", "summer");
+        ess = "summer";
+        document.getElementById("weather").innerHTML = "weather: " + ess
+    })
+    //console.log(document.getElementById("weather"));
+    var autumn = document.getElementById("autumn")
+    autumn.addEventListener("click", ()  => {
+        socket.emit("autumn", "autumn");
+        ess = "autumn";
+        document.getElementById("weather").innerHTML = "weather: " + ess
+    })
+    
+    
+    
+    
+    // var winter = document.getElementById("winter")
+    // socket.emit("winter", winter)
     // for (var i in grassArr) {
     //     grassArr[i].mul();
     // }

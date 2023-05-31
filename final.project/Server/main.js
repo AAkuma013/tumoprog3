@@ -35,7 +35,7 @@ var GrassEater = require("./my_modules/grassEater")
 var Wild = require("./my_modules/wild")
 var Zombie = require("./my_modules/zombie")
 var Executer = require("./my_modules/executer");
-const { log } = require("console");
+//const { log } = require("console");
 
 function createObj() {
     
@@ -109,8 +109,16 @@ function kerparner(qanak, kerpar) {
         a++
     }
 }
-
-
+////////////////////
+// {
+//     if (str == "spring") {
+//         console.log("spring");
+//         setInterval(spring, 300)
+//     }else if (str == ) {
+        
+//     }
+// }
+/////////////////////////
 // kerparner(400,1)
 // kerparner(30,2)
 // kerparner(15,3)
@@ -120,17 +128,24 @@ function kerparner(qanak, kerpar) {
 
 // createObj()
 
-    
+
 io.on('connection', function (socket) {
     console.log("jello");
     socket.emit("my_matrix", matrix )
     socket.on("start",start)
-    socket.on("spring", () => setInterval(spring, 300))
+    socket.on("spring", () => {
+        setInterval(spring, 300)
+        //clrr = "white"
+    })
     socket.on("summer", () => setInterval(summer, 300))
-
+    // socket.on("winter", (smth) => {
+    //     console.log(smth);
+    // })
+    //setInterval(summer, 300)
+    //setInterval(spring, 300)
 });
 function start(){
-  
+    
     kerparner(600,1)
     kerparner(50,2)
     kerparner(25,3)
@@ -139,11 +154,65 @@ function start(){
     createObj()
     setInterval (game, 300)
 }
+function summer() {
+    for (let i = 0; i < grassArr.length; i++) {
+        grassArr[i].multiply = 6
+        //console.log(grassArr[i].multiply);
+    }
+    for (let j = 0; j < grassEaterArr.length; j++) {
+        //console.log(grassEaterArr[j].energy);
+        grassEaterArr[j].energy = grassEaterArr[j].energy -2
+        //console.log(grassEaterArr[j].energy);
+        
+    }
+    for (let j = 0; j < wildArr.length; j++) {
+        //console.log(grassEaterArr[j].energy);
+        wildArr[j].energy = wildArr[j].energy + 3
+        //console.log(grassEaterArr[j].energy);
+        
+    }
+    for (let j = 0; j < zombieArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        let newDirections = [
+            [zombieArr[j].x + 1, zombieArr[j].y - 1],
+            [zombieArr[j].x + 1, zombieArr[j].y + 1],
+            [zombieArr[j].x - 1, zombieArr[j].y - 1],
+            [zombieArr[j].x - 1, zombieArr[j].y + 1],
+         ];
+        zombieArr[j].directions = newDirections
+
+        zombieArr[j].energy = zombieArr[j].energy - 1
+
+        //console.log(zombieArr[j].directions);  
+    }
+    for (let j = 0; j < executerArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        let newDirections = [
+            [executerArr[j].x, executerArr[j].y + 1],
+            
+            [executerArr[j].x + 1, executerArr[j].y],
+           
+            [executerArr[j].x, executerArr[j].y - 1],
+            
+            [executerArr[j].x - 1, executerArr[j].y],
+            
+            
+         ];
+        executerArr[j].directions = newDirections
+
+        executerArr[j].energy= executerArr[j].energy + 0.5
+
+        //console.log(executerArr[j].directions);  
+    }
+}
+
+
+
 
 function spring() {
     for (let i = 0; i < grassArr.length; i++) {
         grassArr[i].multiply = 16
-        
+        //console.log(grassArr[i].multiply);
     }
     for (let j = 0; j < grassEaterArr.length; j++) {
         //console.log(grassEaterArr[j].energy);
@@ -193,7 +262,6 @@ function spring() {
     //     }
     // }
 }
-
 
 
 

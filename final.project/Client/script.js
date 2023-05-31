@@ -20,7 +20,7 @@ function my_draw(matrix) {
     var zmb = 0
     var exc = 0
     //console.log(matrix)
-    var clrr = "green"
+    //var clrr = "green"
     var spring = document.getElementById("spring")
     // function retrn() {
     //     if (spring.clicked == true) {
@@ -30,7 +30,9 @@ function my_draw(matrix) {
     //         return "green"
     //     }
     // }
-    spring.onclick = 
+    // spring.onclick = function() {
+    //     clrr = "white"
+    // }
 
     
     spring.addEventListener("click", () => {
@@ -42,7 +44,12 @@ function my_draw(matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
-                fill(retrn());
+                let clrr = "green"
+                spring.onclick = function(clrr) {
+                    clrr = "white"
+                    return clrr
+                }
+                fill(clrr);
                 grr++
             } else if (matrix[y][x] == 0) {
                 fill("#acacac");

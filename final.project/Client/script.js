@@ -1,3 +1,4 @@
+
 var socket = io()
 socket.on("my_matrix", my_draw)
 
@@ -21,7 +22,7 @@ function my_draw(matrix) {
     var exc = 0
     //console.log(matrix)
     //var clrr = "green"
-    var spring = document.getElementById("spring")
+    
     // function retrn() {
     //     if (spring.clicked == true) {
     //         return "white"
@@ -31,15 +32,12 @@ function my_draw(matrix) {
     //     }
     // }
     // spring.onclick = function() {
-    //     clrr = "white"
+    //  
+    //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    //clrr = "white"
     // }
 
     
-    spring.addEventListener("click", () => {
-        socket.emit("spring", "spring");
-        ess = "spring";
-        document.getElementById("weather").innerHTML = "weather: " + ess
-    })
 
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
@@ -90,6 +88,12 @@ function my_draw(matrix) {
     var ess
     
     //
+    var spring = document.getElementById("spring")
+    spring.addEventListener("click", () => {
+        socket.emit("spring", "spring");
+        ess = "spring";
+        document.getElementById("weather").innerHTML = "weather: " + ess
+    })
 
 
     var summer = document.getElementById("summer")
@@ -103,6 +107,13 @@ function my_draw(matrix) {
     autumn.addEventListener("click", ()  => {
         socket.emit("autumn", "autumn");
         ess = "autumn";
+        document.getElementById("weather").innerHTML = "weather: " + ess
+    })
+
+    var winter = document.getElementById("winter")
+    winter.addEventListener("click", ()  => {
+        socket.emit("winter", "winter");
+        ess = "winter";
         document.getElementById("weather").innerHTML = "weather: " + ess
     })
     

@@ -42,11 +42,15 @@ function my_draw(matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
-                let clrr = "green"
-                spring.onclick = function(clrr) {
+                var clrr = "green"
+                // spring.onclick = function(clrr) {
+                //     clrr = "white"
+                //     return clrr
+                // }
+                $('#spring').on('click', function(){
                     clrr = "white"
                     return clrr
-                }
+                });
                 fill(clrr);
                 grr++
             } else if (matrix[y][x] == 0) {

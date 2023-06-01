@@ -128,11 +128,12 @@ function kerparner(qanak, kerpar) {
 // console.log(matrix)
 
 // createObj()
+var Spr
+var Smm
+var Aut
+var Wnt
+var ozu = []
 
-var Spr = setInterval(spring, 350)
-var Smm = setInterval(summer, 350)
-var Aut = setInterval(autumn, 350)
-var Wnt = setInterval(winter, 350)
 
 io.on('connection', function (socket) {
     console.log("jello");
@@ -140,52 +141,44 @@ io.on('connection', function (socket) {
     socket.on("start",start)
     
 
-    socket.on("spring", function(key){
-        if (key == "summer") {
-            clearInterval(Smm)
-        }else if (key == "autumn") {
-            clearInterval(Aut)
-        }else if (key == "winter") {
-            clearInterval(Wnt)
-        }
-        console.log("SPRING");
+    socket.on("spring", function(){
+         console.log("SPRING");
+        // ozu.push(memory)
+        // if (ozu[0].length > 1) {
+        //     giveThePrevWeather(memory)
+        // }
+        springDir()
         setInterval(spring,350)
     })
 
-    socket.on("summer", function(key){
-        if (key == "spring") {
-            clearInterval(Spr)
-        }else if (key == "autumn") {
-            clearInterval(Aut)
-        }else if (key == "winter") {
-            clearInterval(Wnt)
-            console.log("WINTER----->SUMMER");
-        }
-        console.log("SUMMER");
+    socket.on("summer", function(){
+         console.log("SUMMER");
+        // ozu.push(memory)
+        // if (ozu[0].length > 1) {
+        //     giveThePrevWeather(memory)
+        // }
+        summerDir()
         setInterval(summer,350)
     })
 
-    socket.on("autumn", function(key){
-        if (key == "spring") {
-            clearInterval(Spr)
-        }else if (key == "summer") {
-            clearInterval(Smm)
-        }else if (key == "winter") {
-            clearInterval(Wnt)
-        }
-        console.log("AUTUMN");
+    socket.on("autumn", function(){
+         console.log("AUTUMN");
+        // ozu.push(memory)
+        // if (ozu[0].length > 1) {
+        //     giveThePrevWeather(memory)
+        // }
+        autumnDir()
         setInterval(autumn,350)
     })
 
-    socket.on("winter", function(key){
-        if (key == "spring") {
-            clearInterval(Spr)
-        }else if (key == "summer") {
-            clearInterval(Smm)
-        }else if (key == "autumn") {
-            clearInterval(Aut)
-        }
+    socket.on("winter", function(){
         console.log("WINTER");
+        //  ozu.push(memory)
+        // console.log(ozu[-1].length);
+        // if (ozu[0].length > 1) {
+        //     giveThePrevWeather(memory)
+        // }
+        setTimeout(winterDir, 350)
         setInterval(winter,350)
     })
     // socket.on("summer", () => setInterval(summer, 350))
@@ -207,6 +200,41 @@ function start(){
     createObj()
     setInterval (game, 350)
 }
+function winterDir() {
+    for (let j = 0; j < zombieArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        var newDirectionsZ = [
+            
+            [zombieArr[j].x + 1, zombieArr[j].y - 1],
+            [zombieArr[j].x, zombieArr[j].y + 1],
+            [zombieArr[j].x + 1, zombieArr[j].y + 1],
+            [zombieArr[j].x + 1, zombieArr[j].y],
+            [zombieArr[j].x - 1, zombieArr[j].y - 1],
+            [zombieArr[j].x, zombieArr[j].y - 1],
+            [zombieArr[j].x - 1, zombieArr[j].y + 1],
+            [zombieArr[j].x - 1, zombieArr[j].y],
+         ];
+        zombieArr[j].directions = newDirectionsZ
+
+        // zombieArr[j].energy = zombieArr[j].energy + 0.3
+
+        //console.log(zombieArr[j].directions);  
+    }
+    for (let j = 0; j < executerArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        var newDirectionsE = [
+            [executerArr[j].x, executerArr[j].y + 1],
+            [executerArr[j].x, executerArr[j].y - 1],
+            
+         ];
+        executerArr[j].directions = newDirectionsE
+        //console.log(executerArr[j].directions);
+
+        // executerArr[j].energy= executerArr[j].energy - 0.005
+
+        //console.log(executerArr[j].directions);  
+    }
+}
 
 function winter() {
     for (let i = 0; i < grassArr.length; i++) {
@@ -227,18 +255,18 @@ function winter() {
     }
     for (let j = 0; j < zombieArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        var newDirectionsZ = [
+        // var newDirectionsZ = [
             
-            [zombieArr[j].x + 1, zombieArr[j].y - 1],
-            [zombieArr[j].x, zombieArr[j].y + 1],
-            [zombieArr[j].x + 1, zombieArr[j].y + 1],
-            [zombieArr[j].x + 1, zombieArr[j].y],
-            [zombieArr[j].x - 1, zombieArr[j].y - 1],
-            [zombieArr[j].x, zombieArr[j].y - 1],
-            [zombieArr[j].x - 1, zombieArr[j].y + 1],
-            [zombieArr[j].x - 1, zombieArr[j].y],
-         ];
-        zombieArr[j].directions = newDirectionsZ
+        //     [zombieArr[j].x + 1, zombieArr[j].y - 1],
+        //     [zombieArr[j].x, zombieArr[j].y + 1],
+        //     [zombieArr[j].x + 1, zombieArr[j].y + 1],
+        //     [zombieArr[j].x + 1, zombieArr[j].y],
+        //     [zombieArr[j].x - 1, zombieArr[j].y - 1],
+        //     [zombieArr[j].x, zombieArr[j].y - 1],
+        //     [zombieArr[j].x - 1, zombieArr[j].y + 1],
+        //     [zombieArr[j].x - 1, zombieArr[j].y],
+        //  ];
+        // zombieArr[j].directions = newDirectionsZ
 
         zombieArr[j].energy = zombieArr[j].energy + 0.3
 
@@ -246,12 +274,12 @@ function winter() {
     }
     for (let j = 0; j < executerArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        var newDirectionsE = [
-            [executerArr[j].x, executerArr[j].y + 1],
-            [executerArr[j].x, executerArr[j].y - 1],
+        // var newDirectionsE = [
+        //     [executerArr[j].x, executerArr[j].y + 1],
+        //     [executerArr[j].x, executerArr[j].y - 1],
             
-         ];
-        executerArr[j].directions = newDirectionsE
+        //  ];
+        // executerArr[j].directions = newDirectionsE
         //console.log(executerArr[j].directions);
 
         executerArr[j].energy= executerArr[j].energy - 0.005
@@ -260,6 +288,41 @@ function winter() {
     }
 }
 
+function autumnDir() {
+    for (let j = 0; j < zombieArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        var newDirectionsZ = [
+            [zombieArr[j].x + 1, zombieArr[j].y - 1],
+            [zombieArr[j].x + 1, zombieArr[j].y + 1],
+            [zombieArr[j].x - 1, zombieArr[j].y - 1],
+            [zombieArr[j].x - 1, zombieArr[j].y + 1],
+         ];
+        zombieArr[j].directions = newDirectionsZ
+
+        //zombieArr[j].energy = zombieArr[j].energy + 0.2
+
+        //console.log(zombieArr[j].directions);  
+    }
+    for (let j = 0; j < executerArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        var newDirectionsE = [
+            [executerArr[j].x, executerArr[j].y + 1],
+            
+            [executerArr[j].x + 1, executerArr[j].y],
+           
+            [executerArr[j].x, executerArr[j].y - 1],
+            
+            [executerArr[j].x - 1, executerArr[j].y],
+            
+            
+         ];
+        executerArr[j].directions = newDirectionsE
+
+        //executerArr[j].energy= executerArr[j].energy + 0.05
+
+        //console.log(executerArr[j].directions);  
+    }
+}
 
 function autumn() {
     for (let i = 0; i < grassArr.length; i++) {
@@ -280,6 +343,42 @@ function autumn() {
     }
     for (let j = 0; j < zombieArr.length; j++) {
         //console.log(zombieArr[j].directions);
+        // var newDirectionsZ = [
+        //     [zombieArr[j].x + 1, zombieArr[j].y - 1],
+        //     [zombieArr[j].x + 1, zombieArr[j].y + 1],
+        //     [zombieArr[j].x - 1, zombieArr[j].y - 1],
+        //     [zombieArr[j].x - 1, zombieArr[j].y + 1],
+        //  ];
+        // zombieArr[j].directions = newDirectionsZ
+
+        zombieArr[j].energy = zombieArr[j].energy + 0.2
+
+        //console.log(zombieArr[j].directions);  
+    }
+    for (let j = 0; j < executerArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        // var newDirectionsE = [
+        //     [executerArr[j].x, executerArr[j].y + 1],
+            
+        //     [executerArr[j].x + 1, executerArr[j].y],
+           
+        //     [executerArr[j].x, executerArr[j].y - 1],
+            
+        //     [executerArr[j].x - 1, executerArr[j].y],
+            
+            
+        //  ];
+        // executerArr[j].directions = newDirectionsE
+
+        executerArr[j].energy= executerArr[j].energy + 0.05
+
+        //console.log(executerArr[j].directions);  
+    }
+}
+
+function summerDir() {
+    for (let j = 0; j < zombieArr.length; j++) {
+        //console.log(zombieArr[j].directions);
         var newDirectionsZ = [
             [zombieArr[j].x + 1, zombieArr[j].y - 1],
             [zombieArr[j].x + 1, zombieArr[j].y + 1],
@@ -288,7 +387,8 @@ function autumn() {
          ];
         zombieArr[j].directions = newDirectionsZ
 
-        zombieArr[j].energy = zombieArr[j].energy + 0.2
+
+        //zombieArr[j].energy = zombieArr[j].energy - 0.2
 
         //console.log(zombieArr[j].directions);  
     }
@@ -307,12 +407,11 @@ function autumn() {
          ];
         executerArr[j].directions = newDirectionsE
 
-        executerArr[j].energy= executerArr[j].energy + 0.05
+        //executerArr[j].energy= executerArr[j].energy - 0.05
 
         //console.log(executerArr[j].directions);  
     }
 }
-
 
 function summer() {
     for (let i = 0; i < grassArr.length; i++) {
@@ -333,13 +432,13 @@ function summer() {
     }
     for (let j = 0; j < zombieArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        var newDirectionsZ = [
-            [zombieArr[j].x + 1, zombieArr[j].y - 1],
-            [zombieArr[j].x + 1, zombieArr[j].y + 1],
-            [zombieArr[j].x - 1, zombieArr[j].y - 1],
-            [zombieArr[j].x - 1, zombieArr[j].y + 1],
-         ];
-        zombieArr[j].directions = newDirectionsZ
+        // var newDirectionsZ = [
+        //     [zombieArr[j].x + 1, zombieArr[j].y - 1],
+        //     [zombieArr[j].x + 1, zombieArr[j].y + 1],
+        //     [zombieArr[j].x - 1, zombieArr[j].y - 1],
+        //     [zombieArr[j].x - 1, zombieArr[j].y + 1],
+        //  ];
+        // zombieArr[j].directions = newDirectionsZ
 
 
         zombieArr[j].energy = zombieArr[j].energy - 0.2
@@ -348,18 +447,18 @@ function summer() {
     }
     for (let j = 0; j < executerArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        var newDirectionsE = [
-            [executerArr[j].x, executerArr[j].y + 1],
+        // var newDirectionsE = [
+        //     [executerArr[j].x, executerArr[j].y + 1],
             
-            [executerArr[j].x + 1, executerArr[j].y],
+        //     [executerArr[j].x + 1, executerArr[j].y],
            
-            [executerArr[j].x, executerArr[j].y - 1],
+        //     [executerArr[j].x, executerArr[j].y - 1],
             
-            [executerArr[j].x - 1, executerArr[j].y],
+        //     [executerArr[j].x - 1, executerArr[j].y],
             
             
-         ];
-        executerArr[j].directions = newDirectionsE
+        //  ];
+        // executerArr[j].directions = newDirectionsE
 
         executerArr[j].energy= executerArr[j].energy - 0.05
 
@@ -367,7 +466,36 @@ function summer() {
     }
 }
 
-
+function springDir() {
+    for (let j = 0; j < zombieArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        var newDirectionsZ = [
+            [zombieArr[j].x + 1, zombieArr[j].y - 1],
+            [zombieArr[j].x + 1, zombieArr[j].y + 1],
+         ];
+        zombieArr[j].directions = newDirectionsZ
+    
+        //console.log(zombieArr[j].directions);  
+    }
+    for (let j = 0; j < executerArr.length; j++) {
+        //console.log(zombieArr[j].directions);
+        var newDirectionsE = [
+            [executerArr[j].x, executerArr[j].y + 1],
+            [executerArr[j].x + 1, executerArr[j].y + 1],
+            [executerArr[j].x + 1, executerArr[j].y],
+            [executerArr[j].x + 1, executerArr[j].y - 1],
+            [executerArr[j].x, executerArr[j].y - 1],
+            [executerArr[j].x - 1, executerArr[j].y - 1],
+            [executerArr[j].x - 1, executerArr[j].y],
+            [executerArr[j].x - 1, executerArr[j].y + 1],
+            
+         ];
+        executerArr[j].directions = newDirectionsE
+     //executerArr[j].energy= executerArr[j].energy + 0.5
+    
+        //console.log(executerArr[j].directions);  
+    }
+}
 
 
 function spring() {
@@ -388,34 +516,34 @@ function spring() {
         //console.log(grassEaterArr[j].energy);
         
     }
-    for (let j = 0; j < zombieArr.length; j++) {
-        //console.log(zombieArr[j].directions);
-        var newDirectionsZ = [
-            [zombieArr[j].x + 1, zombieArr[j].y - 1],
-            [zombieArr[j].x + 1, zombieArr[j].y + 1],
-         ];
-        zombieArr[j].directions = newDirectionsZ
+    // for (let j = 0; j < zombieArr.length; j++) {
+    //     //console.log(zombieArr[j].directions);
+    //     // var newDirectionsZ = [
+    //     //     [zombieArr[j].x + 1, zombieArr[j].y - 1],
+    //     //     [zombieArr[j].x + 1, zombieArr[j].y + 1],
+    //     //  ];
+    //     // zombieArr[j].directions = newDirectionsZ
 
-        //console.log(zombieArr[j].directions);  
-    }
-    for (let j = 0; j < executerArr.length; j++) {
-        //console.log(zombieArr[j].directions);
-        var newDirectionsE = [
-            [executerArr[j].x, executerArr[j].y + 1],
-            [executerArr[j].x + 1, executerArr[j].y + 1],
-            [executerArr[j].x + 1, executerArr[j].y],
-            [executerArr[j].x + 1, executerArr[j].y - 1],
-            [executerArr[j].x, executerArr[j].y - 1],
-            [executerArr[j].x - 1, executerArr[j].y - 1],
-            [executerArr[j].x - 1, executerArr[j].y],
-            [executerArr[j].x - 1, executerArr[j].y + 1],
+    //     //console.log(zombieArr[j].directions);  
+    // }
+    // for (let j = 0; j < executerArr.length; j++) {
+    //     //console.log(zombieArr[j].directions);
+    //     // var newDirectionsE = [
+    //     //     [executerArr[j].x, executerArr[j].y + 1],
+    //     //     [executerArr[j].x + 1, executerArr[j].y + 1],
+    //     //     [executerArr[j].x + 1, executerArr[j].y],
+    //     //     [executerArr[j].x + 1, executerArr[j].y - 1],
+    //     //     [executerArr[j].x, executerArr[j].y - 1],
+    //     //     [executerArr[j].x - 1, executerArr[j].y - 1],
+    //     //     [executerArr[j].x - 1, executerArr[j].y],
+    //     //     [executerArr[j].x - 1, executerArr[j].y + 1],
             
-         ];
-        executerArr[j].directions = newDirectionsE
-     //executerArr[j].energy= executerArr[j].energy + 0.5
+    //     //  ];
+    //     // executerArr[j].directions = newDirectionsE
+    //  //executerArr[j].energy= executerArr[j].energy + 0.5
 
-        //console.log(executerArr[j].directions);  
-    }
+    //     //console.log(executerArr[j].directions);  
+    // }
     // for (let y = 0; y < matrix.length; y++) {
     //     for (let x = 0; x < matrix[y].length; x++) {
     //         if (matrix[y][x] == 1) {
@@ -424,7 +552,17 @@ function spring() {
     //     }
     // }
 }
-
+// function giveThePrevWeather(weath) {
+//     if (weath == "spring") {
+//         clearInterval(Spr)
+//     }else if (weath == "summer") {
+//         clearInterval(Smm)
+//     }else if (weath == "autumn") {
+//         clearInterval(Aut)
+//     }else if (weath == "winter") {
+//         clearInterval(Wnt)
+//     }
+// }
 
 
 

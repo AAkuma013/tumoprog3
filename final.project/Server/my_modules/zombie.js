@@ -22,8 +22,7 @@ module.exports = class Zombie extends LivingCreature {
       //     gncDirectionsZmb.push(this.directions[i])
             
       // }
-      // this.directions = gncDirectionsZmb
-        
+        // this.directions
     }
   
   

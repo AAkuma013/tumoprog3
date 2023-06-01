@@ -30,14 +30,18 @@ function my_draw(matrix) {
     // function alrt() {
     //     console.log(grr, grrEtt, wld, zmb, exc);
     // }
-    var count = 0
-    var count1 = []
-    var count2 = []
-    var count3 = []
-    var count4 = []
-    var count5 = []
-    
-
+    // var count = 0
+    // var count1 = []
+    // var count2 = []
+    // var count3 = []
+    // var count4 = []
+    // var count5 = []
+    /////////////////////////////////////////////////////
+    //var ozu = []
+    // socket.on("memory", function meme(weath) {
+    //     socket.emit("mem.ret", weath)
+    // })
+    /////////////////////////////////////////////
     //console.log(matrix)
     //var clrr = "green"
     

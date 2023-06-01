@@ -22,8 +22,7 @@ module.exports = class Executer extends LivingCreature {
         //     gncDirectionsExc.push(this.directions[i])
             
         // }
-        // this.directions = gncDirectionsExc
-        this.directions
+    //    this.directions
     }
 
     chooseCell(character,character2) {

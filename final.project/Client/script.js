@@ -20,6 +20,9 @@ function retrn(randcl) {
     return clrr
   }
 side = 50
+
+
+
 function my_draw(matrix) {
     side = 50
     var grr = 0
@@ -27,6 +30,27 @@ function my_draw(matrix) {
     var wld = 0
     var zmb = 0
     var exc = 0
+//     var chart = new CanvasJS.Chart("chartContainer", {
+//     willReadFrequently: true,
+//     animationEnabled: true,
+//     theme: "dark1", // "light1", "light2", "dark1", "dark2"
+//     title:{
+//         text: "Mobs"
+//     },
+//     axisY: {
+//         title: "Amount"
+//     },
+//     data: [{        
+//         type: "column",  
+//         // showInLegend: true, 
+//         // legendMarkerColor: "grey",
+//         // legendText: "",
+//         dataPoints: [{ "y": grr, "label": "Grass" },{ "y": grrEtt,  "label": "GrassEater" },{ "y": wld,  "label": "Wild" },{ "y": zmb,  "label": "Zombie" },{ "y": exc,  "label": "Executer" },]
+//     }]
+// });
+    
+    //var diagramContainer = document.getElementById("diagramCanvas")
+    //const graph = new mxGraph(diagramContainer)
     // function alrt() {
     //     console.log(grr, grrEtt, wld, zmb, exc);
     // }
@@ -93,15 +117,18 @@ function my_draw(matrix) {
                 exc++
             }
             rect(x * side, y * side, side, side);//client
+           //chart.render(); 
            
                 
+    
             
             
             
             //textSize(20);
             //fill("blue");
             
-        
+    
+      
             document.getElementById("gagulik").innerHTML  = "grass: "+grr
             document.getElementById("ett").innerHTML  = "grassEater: "+grrEtt
             document.getElementById("wld").innerHTML  = "wild: "+wld

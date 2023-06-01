@@ -166,7 +166,7 @@ io.on('connection', function (socket) {
         // ozu.push(memory)
         // if (ozu[0].length > 1) {
         //     giveThePrevWeather(memory)
-        // }
+        // } 
         autumnDir()
         setInterval(autumn,350)
     })
@@ -178,7 +178,7 @@ io.on('connection', function (socket) {
         // if (ozu[0].length > 1) {
         //     giveThePrevWeather(memory)
         // }
-        setTimeout(winterDir, 350)
+        winterDir()
         setInterval(winter,350)
     })
     // socket.on("summer", () => setInterval(summer, 350))

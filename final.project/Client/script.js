@@ -10,8 +10,15 @@ function setup() {
     canvas.className = "mycanvas";
 }
 //var canvas = getElementById("defaultCanvas0")
-
-
+var clrr = "green"
+function retrn(randcl) {
+    clrr = randcl
+    console.log("exxaavvv");
+    var gagulik = document.getElementById("gagulik")
+    gagulik.style.backgroundColor = randcl
+    //document.getElementById("gagulik").innerHTML.background = "white"
+    return clrr
+  }
 side = 50
 function my_draw(matrix) {
     side = 50
@@ -36,21 +43,25 @@ function my_draw(matrix) {
     //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     //clrr = "white"
     // }
-
+    // $('#spring').on('click', function(){
+    //     clrr = "white"
+    //     return clrr
+    // });
+    // function retrn() {
+    //     clrr = "white"
+    //     return clrr
+    // }
     
-
+    
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
-                var clrr = "green"
+                
                 // spring.onclick = function(clrr) {
                 //     clrr = "white"
                 //     return clrr
                 // }
-                ('#spring').on('click', function(){
-                    clrr = "white"
-                    return clrr
-                });
+                
                 fill(clrr);
                 grr++
             } else if (matrix[y][x] == 0) {

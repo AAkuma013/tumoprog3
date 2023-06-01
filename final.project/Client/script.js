@@ -47,7 +47,7 @@ function my_draw(matrix) {
                 //     clrr = "white"
                 //     return clrr
                 // }
-                $('#spring').on('click', function(){
+                ('#spring').on('click', function(){
                     clrr = "white"
                     return clrr
                 });

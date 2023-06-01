@@ -129,15 +129,68 @@ function kerparner(qanak, kerpar) {
 
 // createObj()
 
+var Spr = setInterval(spring, 350)
+var Smm = setInterval(summer, 350)
+var Aut = setInterval(autumn, 350)
+var Wnt = setInterval(winter, 350)
 
 io.on('connection', function (socket) {
     console.log("jello");
     socket.emit("my_matrix", matrix )
     socket.on("start",start)
-    socket.on("spring", () => setInterval(spring, 350))
-    socket.on("summer", () => setInterval(summer, 350))
-    socket.on("autumn", () => setInterval(autumn, 350))
-    socket.on("winter", () => setInterval(winter, 350))
+    
+
+    socket.on("spring", function(key){
+        if (key == "summer") {
+            clearInterval(Smm)
+        }else if (key == "autumn") {
+            clearInterval(Aut)
+        }else if (key == "winter") {
+            clearInterval(Wnt)
+        }
+        console.log("SPRING");
+        setInterval(spring,350)
+    })
+
+    socket.on("summer", function(key){
+        if (key == "spring") {
+            clearInterval(Spr)
+        }else if (key == "autumn") {
+            clearInterval(Aut)
+        }else if (key == "winter") {
+            clearInterval(Wnt)
+            console.log("WINTER----->SUMMER");
+        }
+        console.log("SUMMER");
+        setInterval(summer,350)
+    })
+
+    socket.on("autumn", function(key){
+        if (key == "spring") {
+            clearInterval(Spr)
+        }else if (key == "summer") {
+            clearInterval(Smm)
+        }else if (key == "winter") {
+            clearInterval(Wnt)
+        }
+        console.log("AUTUMN");
+        setInterval(autumn,350)
+    })
+
+    socket.on("winter", function(key){
+        if (key == "spring") {
+            clearInterval(Spr)
+        }else if (key == "summer") {
+            clearInterval(Smm)
+        }else if (key == "autumn") {
+            clearInterval(Aut)
+        }
+        console.log("WINTER");
+        setInterval(winter,350)
+    })
+    // socket.on("summer", () => setInterval(summer, 350))
+    // socket.on("autumn", () => setInterval(autumn, 350))
+    // socket.on("winter", () => setInterval(winter, 350))
     // socket.on("winter", (smth) => {
     //     console.log(smth);
     // })
@@ -174,7 +227,7 @@ function winter() {
     }
     for (let j = 0; j < zombieArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        let newDirectionsZ = [
+        var newDirectionsZ = [
             
             [zombieArr[j].x + 1, zombieArr[j].y - 1],
             [zombieArr[j].x, zombieArr[j].y + 1],
@@ -193,12 +246,13 @@ function winter() {
     }
     for (let j = 0; j < executerArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        let newDirectionsE = [
+        var newDirectionsE = [
             [executerArr[j].x, executerArr[j].y + 1],
             [executerArr[j].x, executerArr[j].y - 1],
             
          ];
         executerArr[j].directions = newDirectionsE
+        //console.log(executerArr[j].directions);
 
         executerArr[j].energy= executerArr[j].energy - 0.005
 
@@ -226,7 +280,7 @@ function autumn() {
     }
     for (let j = 0; j < zombieArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        let newDirectionsZ = [
+        var newDirectionsZ = [
             [zombieArr[j].x + 1, zombieArr[j].y - 1],
             [zombieArr[j].x + 1, zombieArr[j].y + 1],
             [zombieArr[j].x - 1, zombieArr[j].y - 1],
@@ -240,7 +294,7 @@ function autumn() {
     }
     for (let j = 0; j < executerArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        let newDirectionsE = [
+        var newDirectionsE = [
             [executerArr[j].x, executerArr[j].y + 1],
             
             [executerArr[j].x + 1, executerArr[j].y],
@@ -279,7 +333,7 @@ function summer() {
     }
     for (let j = 0; j < zombieArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        let newDirectionsZ = [
+        var newDirectionsZ = [
             [zombieArr[j].x + 1, zombieArr[j].y - 1],
             [zombieArr[j].x + 1, zombieArr[j].y + 1],
             [zombieArr[j].x - 1, zombieArr[j].y - 1],
@@ -287,13 +341,14 @@ function summer() {
          ];
         zombieArr[j].directions = newDirectionsZ
 
+
         zombieArr[j].energy = zombieArr[j].energy - 0.2
 
         //console.log(zombieArr[j].directions);  
     }
     for (let j = 0; j < executerArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        let newDirectionsE = [
+        var newDirectionsE = [
             [executerArr[j].x, executerArr[j].y + 1],
             
             [executerArr[j].x + 1, executerArr[j].y],
@@ -335,7 +390,7 @@ function spring() {
     }
     for (let j = 0; j < zombieArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        let newDirectionsZ = [
+        var newDirectionsZ = [
             [zombieArr[j].x + 1, zombieArr[j].y - 1],
             [zombieArr[j].x + 1, zombieArr[j].y + 1],
          ];
@@ -345,7 +400,7 @@ function spring() {
     }
     for (let j = 0; j < executerArr.length; j++) {
         //console.log(zombieArr[j].directions);
-        let newDirectionsE = [
+        var newDirectionsE = [
             [executerArr[j].x, executerArr[j].y + 1],
             [executerArr[j].x + 1, executerArr[j].y + 1],
             [executerArr[j].x + 1, executerArr[j].y],

@@ -26,6 +26,13 @@ module.exports = class GrassEater extends LivingCreature {
       [this.x, this.y + 1],
       [this.x + 1, this.y + 1],
     ];
+    // var gncDirectionsEtt = []
+    // for (let i = 0; i < this.directions.length; i++) {
+    //     gncDirectionsEtt.push(this.directions[i])
+            
+    // }
+    // this.directions = gncDirectionsEtt
+        
   }
 
   chooseCell(character) {

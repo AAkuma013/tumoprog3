@@ -17,6 +17,13 @@ module.exports = class Executer extends LivingCreature {
             [this.x + 1, this.y],
             [this.x, this.y + 1],
         ];
+        // var gncDirectionsExc = []
+        // for (let i = 0; i < this.directions.length; i++) {
+        //     gncDirectionsExc.push(this.directions[i])
+            
+        // }
+        // this.directions = gncDirectionsExc
+        this.directions
     }
 
     chooseCell(character,character2) {

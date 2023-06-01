@@ -25,6 +25,13 @@ module.exports = class Wild extends LivingCreature {
             [this.x, this.y + 1],
             [this.x + 1, this.y + 1]
         ];
+        // var gncDirectionsWld = []
+        // for (let i = 0; i < this.directions.length; i++) {
+        //     gncDirectionsWld.push(this.directions[i])
+            
+        // }
+        // this.directions = gncDirectionsWld
+        
     }
 
     chooseCell(character,character2) {

@@ -27,6 +27,17 @@ function my_draw(matrix) {
     var wld = 0
     var zmb = 0
     var exc = 0
+    // function alrt() {
+    //     console.log(grr, grrEtt, wld, zmb, exc);
+    // }
+    var count = 0
+    var count1 = []
+    var count2 = []
+    var count3 = []
+    var count4 = []
+    var count5 = []
+    
+
     //console.log(matrix)
     //var clrr = "green"
     
@@ -56,12 +67,10 @@ function my_draw(matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
-                
                 // spring.onclick = function(clrr) {
                 //     clrr = "white"
                 //     return clrr
                 // }
-                
                 fill(clrr);
                 grr++
             } else if (matrix[y][x] == 0) {
@@ -80,6 +89,10 @@ function my_draw(matrix) {
                 exc++
             }
             rect(x * side, y * side, side, side);//client
+           
+                
+            
+            
             
             //textSize(20);
             //fill("blue");
@@ -91,9 +104,12 @@ function my_draw(matrix) {
             document.getElementById("zmb").innerHTML  = "zombie: "+zmb
             document.getElementById("exc").innerHTML  = "executer: "+exc
             //text(x + " " + y, x * side + side / 2, y * side + side / 2);
-
+            
         }
     }
+    // setInterval(() => {
+    //     console.log("helllllno")
+    //     }, 10000);
     //add event listener
     var start = document.getElementById("start")
     //console.log(start)

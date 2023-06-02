@@ -23,6 +23,9 @@ body{
 	margin-top: 80px;
 	z-index: -1;
 }
+.canvas{
+	margin-left: 33px;
+}
 .header{
 	height: 75px;
 	background-color: #1f2833;

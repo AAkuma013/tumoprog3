@@ -11,12 +11,13 @@ module.exports = class Executer extends LivingCreature {
         ];
       }
     getNewCoordinates() {
-        this.directions = [
-            [this.x, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x, this.y + 1],
-        ];
+        // this.directions = [
+        //     [this.x, this.y - 1],
+        //     [this.x - 1, this.y],
+        //     [this.x + 1, this.y],
+        //     [this.x, this.y + 1],
+        // ];
+        return this.directions
         // var gncDirectionsExc = []
         // for (let i = 0; i < this.directions.length; i++) {
         //     gncDirectionsExc.push(this.directions[i])

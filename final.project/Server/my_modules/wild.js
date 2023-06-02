@@ -15,16 +15,17 @@ module.exports = class Wild extends LivingCreature {
         ];
       }
     getNewCoordinates() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
+        // this.directions = [
+        //     [this.x - 1, this.y - 1],
+        //     [this.x, this.y - 1],
+        //     [this.x + 1, this.y - 1],
+        //     [this.x - 1, this.y],
+        //     [this.x + 1, this.y],
+        //     [this.x - 1, this.y + 1],
+        //     [this.x, this.y + 1],
+        //     [this.x + 1, this.y + 1]
+        // ];
+        return this.directions
         // var gncDirectionsWld = []
         // for (let i = 0; i < this.directions.length; i++) {
         //     gncDirectionsWld.push(this.directions[i])

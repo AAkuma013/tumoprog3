@@ -128,59 +128,127 @@ function kerparner(qanak, kerpar) {
 // console.log(matrix)
 
 // createObj()
-var Spr
-var Smm
-var Aut
-var Wnt
-var ozu = []
+// var Spr
+// var Smm
+// var Aut
+// var Wnt
+// var ozu = []
 
 
+
+var intervalID = null;
 io.on('connection', function (socket) {
     console.log("jello");
     socket.emit("my_matrix", matrix )
     socket.on("start",start)
-    
 
+    ////////////////////////////
+    
+     // Variable to store the interval ID
+    
     socket.on("spring", function(){
-         console.log("SPRING");
-        // ozu.push(memory)
-        // if (ozu[0].length > 1) {
-        //     giveThePrevWeather(memory)
-        // }
-        springDir()
-        setInterval(spring,350)
-    })
+        console.log("SPRING");
+        clearInterval(intervalID); // Clear the previous interval
+        springDir();
+        intervalID = setInterval(spring, 350);
+    });
 
     socket.on("summer", function(){
-         console.log("SUMMER");
-        // ozu.push(memory)
-        // if (ozu[0].length > 1) {
-        //     giveThePrevWeather(memory)
-        // }
-        summerDir()
-        setInterval(summer,350)
-    })
+        console.log("SUMMER");
+        clearInterval(intervalID); // Clear the previous interval
+        summerDir();
+        intervalID = setInterval(summer, 350);
+    });
 
     socket.on("autumn", function(){
-         console.log("AUTUMN");
-        // ozu.push(memory)
-        // if (ozu[0].length > 1) {
-        //     giveThePrevWeather(memory)
-        // } 
-        autumnDir()
-        setInterval(autumn,350)
-    })
+        console.log("AUTUMN");
+        clearInterval(intervalID); // Clear the previous interval
+        autumnDir();
+        intervalID = setInterval(autumn, 350);
+    });
 
     socket.on("winter", function(){
         console.log("WINTER");
-        //  ozu.push(memory)
-        // console.log(ozu[-1].length);
-        // if (ozu[0].length > 1) {
-        //     giveThePrevWeather(memory)
-        // }
-        winterDir()
-        setInterval(winter,350)
-    })
+        clearInterval(intervalID); // Clear the previous interval
+        winterDir();
+        intervalID = setInterval(winter, 350);
+    });
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ // socket.on("spring", function(){
+    //     console.log("SPRING");
+    //     //clearInterval(intervalID); // Clear the previous interval
+    //     springDir();
+    //     //intervalID = 
+    //     setInterval(spring, 350);
+    // });
+
+    // socket.on("summer", function(){
+    //     console.log("SUMMER");
+    //     //clearInterval(intervalID); // Clear the previous interval
+    //     summerDir();
+    //     //intervalID = 
+    //     setInterval(summer, 350);
+    // });
+
+    // socket.on("autumn", function(){
+    //     console.log("AUTUMN");
+    //     //clearInterval(intervalID); // Clear the previous interval
+    //     autumnDir();
+    //     //intervalID = 
+    //     setInterval(autumn, 350);
+    // });
+
+    // socket.on("winter", function(){
+    //     console.log("WINTER");
+    //     //clearInterval(intervalID); // Clear the previous interval
+    //     winterDir();
+    //     //intervalID = 
+    //     setInterval(winter, 350);
+    // });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////
+    // socket.on("spring", function(){
+    //      console.log("SPRING");
+    //     // ozu.push(memory)
+    //     // if (ozu[0].length > 1) {
+    //     //     giveThePrevWeather(memory)
+    //     // }
+    //     springDir()
+    //     setInterval(spring,350)
+    // })
+    
+    // socket.on("summer", function(){
+    //      console.log("SUMMER");
+    //     // ozu.push(memory)
+    //     // if (ozu[0].length > 1) {
+    //     //     giveThePrevWeather(memory)
+    //     // }
+    //     summerDir()
+    //     setInterval(summer,350)
+    // })
+    
+    // socket.on("autumn", function(){
+    //      console.log("AUTUMN");
+    //     // ozu.push(memory)
+    //     // if (ozu[0].length > 1) {
+    //     //     giveThePrevWeather(memory)
+    //     // } 
+    //     autumnDir()
+    //     setInterval(autumn,350)
+    // })
+    
+    // socket.on("winter", function(){
+    //     console.log("WINTER");
+    //     //  ozu.push(memory)
+    //     // console.log(ozu[-1].length);
+    //     // if (ozu[0].length > 1) {
+    //     //     giveThePrevWeather(memory)
+    //     // }
+    //     winterDir()
+    //     setInterval(winter,350)
+    // })
     // socket.on("summer", () => setInterval(summer, 350))
     // socket.on("autumn", () => setInterval(autumn, 350))
     // socket.on("winter", () => setInterval(winter, 350))
@@ -189,7 +257,7 @@ io.on('connection', function (socket) {
     // })
     //setInterval(summer, 300)
     //setInterval(spring, 300)
-});
+
 function start(){
     
     kerparner(600,1)
@@ -370,7 +438,7 @@ function autumn() {
         //  ];
         // executerArr[j].directions = newDirectionsE
 
-        executerArr[j].energy= executerArr[j].energy + 0.05
+        executerArr[j].energy= executerArr[j].energy + 0.09
 
         //console.log(executerArr[j].directions);  
     }
@@ -441,7 +509,7 @@ function summer() {
         // zombieArr[j].directions = newDirectionsZ
 
 
-        zombieArr[j].energy = zombieArr[j].energy - 0.2
+        zombieArr[j].energy = zombieArr[j].energy - 0.19
 
         //console.log(zombieArr[j].directions);  
     }
@@ -460,7 +528,7 @@ function summer() {
         //  ];
         // executerArr[j].directions = newDirectionsE
 
-        executerArr[j].energy= executerArr[j].energy - 0.05
+        executerArr[j].energy= executerArr[j].energy - 0.03
 
         //console.log(executerArr[j].directions);  
     }

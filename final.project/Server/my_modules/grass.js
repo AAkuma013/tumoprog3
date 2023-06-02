@@ -1,3 +1,9 @@
+const io = require('socket.io-client');
+
+// Create a socket connection
+const socket = io('http://localhost:3000'); 
+
+
 var LivingCreature = require("./ancestor")
 module.exports = class Grass extends LivingCreature {
   constructor(x, y, index) {
@@ -11,9 +17,12 @@ module.exports = class Grass extends LivingCreature {
       [this.x - 1, this.y + 1],
       [this.x, this.y + 1],
       [this.x + 1, this.y + 1],
-    ];    
+    ];
+    this.newCellCount = 0
+     // Store the callback function
   }    
   mul() {
+    
     this.multiply++;
     //console.log(this.chooseCell(0));
     let newCells = this.chooseCell(0)
@@ -27,6 +36,10 @@ module.exports = class Grass extends LivingCreature {
       matrix[newCell[1]][newCell[0]] = this.index;
 
       this.multiply = 0;
+      this.newCellCount++
+      socket.emit('newCellCount', this.newCellCount);
+      // Invoke the callback function with the newCellCount value
+      
     }
   }
 }

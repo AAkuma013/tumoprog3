@@ -45,7 +45,8 @@ side = 50;
 //   export function getVariableExc() {
 //     return exc;
 //   }
-
+// grassArr = []
+// var finalCount = 0
 function my_draw(matrix) {
     side = 50;
     var grr = 0;
@@ -53,7 +54,17 @@ function my_draw(matrix) {
     var wld = 0;
     var zmb = 0;
     var exc = 0;
-
+    // var count = 0
+    
+    // socket.on("recieveMul", () =>{
+    //     for (let i = 0; i < grassArr.length; i++) {
+            
+    //         count = count + grassArr[i].newCellCount
+    //         finalCount = count + finalCount
+    //     }
+    //     console.log(finalCount);
+    //     socket.emit("recieveMulBack",finalCount)
+    // })    
     var chart = new CanvasJS.Chart("chartContainer", {
         willReadFrequently: true,
         animationEnabled: false,

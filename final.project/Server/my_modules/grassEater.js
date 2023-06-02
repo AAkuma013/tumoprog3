@@ -16,17 +16,17 @@ module.exports = class GrassEater extends LivingCreature {
   }
 
   getNewCoordinates() {
-    // this.directions = [
-    //   [this.x - 1, this.y - 1],
-    //   [this.x, this.y - 1],
-    //   [this.x + 1, this.y - 1],
-    //   [this.x - 1, this.y],
-    //   [this.x + 1, this.y],
-    //   [this.x - 1, this.y + 1],
-    //   [this.x, this.y + 1],
-    //   [this.x + 1, this.y + 1],
-    // ];
-    return this.directions
+    this.directions = [
+      [this.x - 1, this.y - 1],
+      [this.x, this.y - 1],
+      [this.x + 1, this.y - 1],
+      [this.x - 1, this.y],
+      [this.x + 1, this.y],
+      [this.x - 1, this.y + 1],
+      [this.x, this.y + 1],
+      [this.x + 1, this.y + 1],
+    ];
+    // return this.directions
     // var gncDirectionsEtt = []
     // for (let i = 0; i < this.directions.length; i++) {
     //     gncDirectionsEtt.push(this.directions[i])

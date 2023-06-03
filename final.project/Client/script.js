@@ -54,7 +54,9 @@ function my_draw(matrix) {
     var wld = 0;
     var zmb = 0;
     var exc = 0;
-    var dmn = 0
+    var dmn = 0;
+    var drg = 0;
+    var stt = 0;
     // var count = 0
     
     // socket.on("recieveMul", () =>{
@@ -89,6 +91,8 @@ function my_draw(matrix) {
             { y: zmb, label: "ZOMBIE" },
             { y: exc, label: "EXECUTER" },
             { y: dmn, label: "DEMON" },
+            { y: drg, label: "DARKGRASS" },
+            { y: stt, label: "STATUE" },
             ],
         },
         ],
@@ -174,6 +178,12 @@ function my_draw(matrix) {
             }else if (matrix[y][x] === 6) {
                 fill("#1d0230");
                 dmn++;
+            }else if (matrix[y][x] === 8) {
+                fill("black");
+                drg++;
+            }else if (matrix[y][x] === 7) {
+                fill("#1e4f4b");
+                stt++;
             }
             
             rect(x * side, y * side, side, side); //client
@@ -189,6 +199,8 @@ function my_draw(matrix) {
             document.getElementById("zmb").innerHTML = "zombie: " + zmb;
             document.getElementById("exc").innerHTML = "executer: " + exc;
             document.getElementById("dmn").innerHTML = "demon: " + dmn;
+            document.getElementById("drg").innerHTML = "darkgrass: " + drg;
+            document.getElementById("stt").innerHTML = "statue: " + stt;
             //text(x + " " + y, x * side + side / 2, y * side + side / 2);
         }
     }
@@ -200,7 +212,9 @@ function my_draw(matrix) {
         { y: zmb, label: "ZOMBIE" },
         { y: exc, label: "EXECUTER" },
         { y: dmn, label: "DEMON" },
-    ];
+        { y: drg, label: "DARKGRASS" },
+        { y: stt, label: "STATUE" },
+];
     chart.options.willReadFrequently = true
     chart.render()
     

@@ -209,6 +209,8 @@ var wildArr = [];
 var zombieArr = [];
 var executerArr = [];//server
 var demonArr = []
+var darkGrassArr = []
+var statueArr = []
 
 function setup() {
 

@@ -33,6 +33,8 @@ wildArr = [];
 zombieArr = [];
 executerArr = [];
 demonArr = [];
+darkGrassArr = [];
+statueArr = []
 
 var Grass = require("./my_modules/grass.js")
 var GrassEater = require("./my_modules/grassEater.js")
@@ -40,6 +42,8 @@ var Wild = require("./my_modules/wild.js")
 var Zombie = require("./my_modules/zombie.js")
 var Executer = require("./my_modules/executer.js");
 var Demon = require("./my_modules/demon.js");
+var DarkGrass = require("./my_modules/darkGrass.js")
+var Statue = require("./my_modules/statue.js")
 const { log } = require("console");
 //const { log } = require("console");
 
@@ -68,6 +72,12 @@ function createObj() {
             }else if (matrix[y][x] == 6) {
                 let demon = new Demon(x, y, 6);
                 demonArr.push(demon);
+            }else if (matrix[y][x] == 8) {
+                let darkGrass = new DarkGrass(x, y, 8);
+                darkGrassArr.push(darkGrass);
+            }else if (matrix[y][x] == 7) {
+                let statue = new Statue(x, y, 7);
+                statueArr.push(statue);
             }
         }
     }//server
@@ -94,6 +104,10 @@ function game() {
     }
     for (var i in demonArr) {
         demonArr[i].genKen();
+    }for (var i in darkGrassArr) {
+        darkGrassArr[i].Shokku();
+    }for (var i in statueArr) {
+        statueArr[i].Yin();
     }//server
     io.sockets.emit("my_matrix", matrix)
 }
@@ -337,11 +351,14 @@ io.on('connection', function (socket) {
 function start(){
     
     kerparner(800,1)
-    kerparner(75,2)
-    kerparner(50,3)
-    kerparner(15,4)
-    kerparner(75,5)
-    kerparner(50,6)
+    kerparner(80,2)
+    kerparner(25,3)
+    kerparner(10,4)
+    kerparner(55,5)
+    kerparner(25,6)
+    kerparner(5,7)
+    kerparner(5,8)
+
     createObj()
     setInterval (game, 350)
 }

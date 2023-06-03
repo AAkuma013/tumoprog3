@@ -1,6 +1,8 @@
 var LivingCreature = require("./ancestor");
+const DarkGrass = require("./darkGrass");
 const Grass = require("./grass");
 const Wild = require("./wild");
+var Zombie = require("./zombie")
 module.exports = class Demon extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
@@ -119,9 +121,9 @@ module.exports = class Demon extends LivingCreature {
         return found;
       }
 
-    chooseCell(character,character2) {
+    chooseCell(character,character2 = 100) {
         this.getNewCoordinates()
-        return super.chooseCell(character,character2);
+        return super.chooseCell(character, character2 = 100);
     }
 
     // mul() {
@@ -163,26 +165,31 @@ module.exports = class Demon extends LivingCreature {
 
         let zombies = this.chooseKonCell(4)
         let executers = this.chooseKonCell(5)
-        let grasses = this.chooseCell(0)
+        let grasses = this.chooseCell(1)
         let grass = grasses[Math.floor(Math.random()*grasses.length)];
+        let newVoids = this.chooseCell(8)
+        //let newVoid = newVoids[Math.floor(Math.random()*newVoids.length)];
 
         
         //let zombie = zombies[Math.floor(Math.random()*zombies.length)]
-        if (zombies.length == 4) {
+        
+        if (newVoids >= 3) {
             this.energy++
-            for (let j = 0; j < zombies.length; j++) {
-                let zombie = zombies[j]
-                let newX = zombie[0]
-                let newY = zombie[1]
-                matrix[zombie[1]][zombie[0]] = 0
+            for (let j = 0; j < darkGrassArr.length; j++) {
+                let darkGrass = newVoids[j]
+                let newX = darkGrass[0]
+                let newY = darkGrass[1]
+                matrix[darkGrass[1]][darkGrass[0]] = 0
                 
-                for (var i in zombieArr) {
-                    if (newX == zombieArr[i].x && newY ==zombieArr[i].y) {
-                        zombieArr.splice(i, 1);
+                for (var i in darkGrassArr) {
+                    if (newX == darkGrassArr[i].x && newY ==darkGrassArr[i].y) {
+                        darkGrassArr.splice(i, 1);
                         break;
+                        }
                     }
                 }
-            }
+                this.move()
+            
             // matrix[this.y][this.x] = 0
             // let newX = zombie[0]
             // let newY = zombie[1]
@@ -199,15 +206,34 @@ module.exports = class Demon extends LivingCreature {
             if (this.energy >= 12) {
                 //this.mul()
             }
+        }else if (zombies.length >= 4) {
+            this.energy++
+            for (let j = 0; j < zombies.length; j++) {
+                let zombie = zombies[j]
+                let newX = zombie[0]
+                let newY = zombie[1]
+                matrix[zombie[1]][zombie[0]] = 0
+                
+                for (var i in zombieArr) {
+                    if (newX == zombieArr[i].x && newY ==zombieArr[i].y) {
+                        zombieArr.splice(i, 1);
+                        break;
+                    }
+                }
+            }
+            this.move() 
         }else if (executers) {
             //this.energy= this.energy -0.5
             for (let i = 0; i < executers.length; i++) {
                 let executer = executers[i]
                 let newX = executer[0]
                 let newY = executer[1]
-                matrix[executer[1]][executer[0]] = 3
-                let newWild = new Wild(executer[0], executer[1], 3);
-                wildArr.push(newWild);
+                // matrix[executer[1]][executer[0]] = 3
+                // let newWild = new Wild(executer[0], executer[1], 3);
+                // wildArr.push(newWild);
+                matrix[executer[1]][executer[0]] = 1
+                let newGrass = new Grass(executer[0], executer[1], 1);
+                grassArr.push(newGrass);
                 for (var j in executerArr) {
                     if (newX == executerArr[j].x && newY ==executerArr[j].y) {
                     executerArr.splice(j, 1);
@@ -216,25 +242,33 @@ module.exports = class Demon extends LivingCreature {
                 }
             }
             this.move()
-        }else if (grass) {
-            let newX = grass[0]
-            let newY = grass[1]
-            matrix[this.y][this.x] = 1
-            let newGrass = new Grass(this.x,this.y,1)
-            grassArr.push(newGrass)
-            for (let i = 0; i < demonArr.length; i++) {
-                if (this.x == demonArr[j].x && this.x ==demonArr[j].y) {
-                    demonArr.splice(j, 1);
-                    break;
-                }
+        // else if (grass) {
+        //     matrix[this.y][this.x] = 0;
+        //     let newX = grass[0];
+        //     let newY = grass[1];
+        //     matrix[grass[1]][grass[0]] = 6;
+        //     this.x = newX;
+        //     this.y = newY;
+        //     for (var i in grassArr) {
+        //       if (newX == grassArr[i].x && newY == grassArr[i].y) {
+        //         grassArr.splice(i, 1);
+        //         break;
+        //       }
+        //     }
+            // matrix[this.y][this.x] = 8
+            // let newDarkGrass = new DarkGrass(this.x,this.y,8)
+            // darkGrassArr.push(newDarkGrass)
+            // for (let i = 0; i < demonArr.length; i++) {
+            //     if (this.x == demonArr[i].x && this.y ==demonArr[i].y) {
+            //         demonArr.splice(i, 1);
+        
+            //         break;
+            //     }
                 
-            }
-            matrix[newY][newX] = 6
-            // let newDemon = new Demon(newX,newY,6)
-            // demonArr.push(newDemon)
-            this.x = newX
-            this.y = newY
-            this.move()
+            // }
+            
+            //this.move()
+
         }else {
             this.move()
         }

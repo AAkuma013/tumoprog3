@@ -8,8 +8,10 @@
 }
 body{
 	background-color: #0b0c10;
+	
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+	background-size: cover;
 	/* background-size: cover; */
 }
 /* .canvasjs-chart-canvas{
@@ -71,6 +73,13 @@ body{
 	margin-left: 380px;
     
 }
+.irad{
+	text-transform: uppercase;
+	font-size: 55px;
+	color: #45a29e;
+	margin-left: 400px;
+    
+}
 .text p{
     font-size: 30px;
     margin-top: 10px;
@@ -81,12 +90,12 @@ body{
 }
 .mng{
     justify-content: space-around;
-	width: 2500px;
+	width: 2880px;
 	display: flex;
 	
 }
 .mng .starter{
-	width: 1250x;
+	width: 1630x;
 	margin-right: 0px;
 }
 .mng .weath{
@@ -101,7 +110,7 @@ body{
 
 .stat ul{
 	display: flex;
-	width: 1250px;
+	width: 1630px;
 	justify-content: space-around;
 }
 .stat ul li, .weath ul li button{
@@ -111,7 +120,7 @@ body{
     margin-top: 20px;
     margin-right: 5px;
 	margin-left: 5px;
-	list-style: none;
+	list-style: none; 
 
 }
 
@@ -156,6 +165,23 @@ body{
 	border-radius: 5px;
 	margin-left: 0px;
 	box-shadow: 3px 3px #c5c6c7;
+	color: white;
+}
+.stat ul .drg{
+	background-color: black;
+	padding: 8px 27px 8px 27px;
+	border-radius: 5px;
+	margin-left: 0px;
+	box-shadow: 3px 3px #c5c6c7;
+	color: white;
+}
+.stat ul .stt{
+	background-color: #1e4f4b;
+	padding: 8px 27px 8px 27px;
+	border-radius: 5px;
+	margin-left: 0px;
+	box-shadow: 3px 3px #c5c6c7;
+	color: white;
 }
 .weath ul li button{
 	padding: 8px 27px 8px 27px;
@@ -194,7 +220,7 @@ body{
 	border-radius: 5px;
 	box-shadow: 3px 5px #c5c6c7;
 	margin-top: 20px;
-	margin-left: 573px;
+	margin-left: 767px;
 	margin-bottom: 10px;
 }
 .staRt:hover {background-color: #45a29e}

@@ -32,12 +32,14 @@ grassEaterArr = [];
 wildArr = [];
 zombieArr = [];
 executerArr = [];
+demonArr = [];
 
-var Grass = require("./my_modules/grass")
-var GrassEater = require("./my_modules/grassEater")
-var Wild = require("./my_modules/wild")
-var Zombie = require("./my_modules/zombie")
-var Executer = require("./my_modules/executer");
+var Grass = require("./my_modules/grass.js")
+var GrassEater = require("./my_modules/grassEater.js")
+var Wild = require("./my_modules/wild.js")
+var Zombie = require("./my_modules/zombie.js")
+var Executer = require("./my_modules/executer.js");
+var Demon = require("./my_modules/demon.js");
 const { log } = require("console");
 //const { log } = require("console");
 
@@ -63,6 +65,9 @@ function createObj() {
             else if (matrix[y][x] == 5) {
                 let executer = new Executer(x, y, 5);
                 executerArr.push(executer);
+            }else if (matrix[y][x] == 6) {
+                let demon = new Demon(x, y, 6);
+                demonArr.push(demon);
             }
         }
     }//server
@@ -86,6 +91,9 @@ function game() {
     }
     for (var i in executerArr) {
         executerArr[i].execute();
+    }
+    for (var i in demonArr) {
+        demonArr[i].genKen();
     }//server
     io.sockets.emit("my_matrix", matrix)
 }
@@ -138,8 +146,8 @@ function kerparner(qanak, kerpar) {
 // var ozu = []
 
 
-var count = 0
 
+///const filePath = './package.json';
 io.on('connection', function (socket) {
     var intervalID = null;
     console.log("jello");
@@ -147,40 +155,49 @@ io.on('connection', function (socket) {
     socket.on("start",start)
 
     ////////////////////////////
-    socket.on('newCellCount', (newCellCount) => {
-        // socket.emit("recieveMul", "yesss")
-        // console.log("server recieved mul and send it to client :)");
-        count = count + newCellCount
-        const filePath = './package.json';
-        setInterval(() => {
-            fs.readFile(filePath, 'utf8', (err, data) => {
-                if (err) {
-                  console.error('Error reading package.json file:', err);
-                  return;
-                }
-              
-                // Parse the contents into a JavaScript object
-                const jsonData = JSON.parse(data);
-              
-                // Update the specific variable in the JavaScript object
-                jsonData.GrassMul = count;
-              
-                // Convert the JavaScript object back to JSON string
-                const jsonGrass = JSON.stringify(jsonData, null, 2);
-              
-                // Write the updated data back to the package.json file
-                fs.writeFile(filePath, jsonGrass, (err) => {
-                  if (err) {
-                    console.error('Error writing to package.json file:', err);
-                    return;
-                  }
-                  console.log('Variable updated in package.json file successfully.');
-                });
-              });
-        }, 60000);
-        // Perform your desired actions with the newCellCount value here
-        // For example, you can store it in a database, update a web page, etc.
-      });
+    //var count = 0
+    // socket.on('newCellCount', (newCellCount) => {
+    //     // socket.emit("recieveMul", "yesss")
+    //     // console.log("server recieved mul and send it to client :)");
+    //     count = count + newCellCount
+        
+    //     // setInterval(() => {
+    //     const updateVariable = () => {
+    //         fs.readFile(filePath, 'utf8', (err, data) => {
+    //             if (err) {
+    //             console.error('Error reading package.json file:', err);
+    //             return;
+    //             }
+            
+    //             // Parse the contents into a JavaScript object
+    //             const jsonData = JSON.parse(data);
+            
+    //             // Update the specific variable in the JavaScript object
+    //             jsonData.GrassMul = count;
+            
+    //             // Convert the JavaScript object back to JSON string
+    //             const jsonGrass = JSON.stringify(jsonData, null, 2);
+            
+    //             // Write the updated data back to the package.json file
+    //             fs.writeFile(filePath, jsonGrass, (err) => {
+    //             if (err) {
+    //                 console.error('Error writing to package.json file:', err);
+    //                 return;
+    //             }
+    //             console.log('Variable updated in package.json file successfully.');
+    //             });
+    //         });
+    //         };
+            
+    //         // Call the updateVariable function initially
+    //         updateVariable();
+            
+    //         // Schedule the updateVariable function to run every 10 seconds
+    //         setInterval(updateVariable, 10000);
+    //     // }, 60000);
+    //     // Perform your desired actions with the newCellCount value here
+    //     // For example, you can store it in a database, update a web page, etc.
+    //   });
       
 //     socket.on("recieveMulBack",(finalCount)=> {
 //         const jsonData = { "grass.mul": finalCount };
@@ -319,11 +336,12 @@ io.on('connection', function (socket) {
 
 function start(){
     
-    kerparner(600,1)
-    kerparner(50,2)
-    kerparner(25,3)
-    kerparner(8,4)
-    kerparner(25,5)
+    kerparner(800,1)
+    kerparner(75,2)
+    kerparner(50,3)
+    kerparner(15,4)
+    kerparner(75,5)
+    kerparner(50,6)
     createObj()
     setInterval (game, 350)
 }

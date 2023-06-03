@@ -208,6 +208,7 @@ var grassEaterArr = [];
 var wildArr = [];
 var zombieArr = [];
 var executerArr = [];//server
+var demonArr = []
 
 function setup() {
 

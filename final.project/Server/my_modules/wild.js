@@ -2,7 +2,7 @@ var LivingCreature = require("./ancestor")
 module.exports = class Wild extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
-        this.energy = 8;
+        this.energy = 12;
         this.directions = [
           [this.x - 1, this.y - 1],
           [this.x, this.y - 1],
@@ -47,7 +47,7 @@ module.exports = class Wild extends LivingCreature {
             var newWild = new Wild(newCell[0], newCell[1], this.index);
             wildArr.push(newWild);
             matrix[newCell[1]][newCell[0]] = 3;
-            this.energy = 8
+            this.energy = 12
         }
     }
     move() {

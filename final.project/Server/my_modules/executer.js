@@ -2,7 +2,7 @@ var LivingCreature = require("./ancestor")
 module.exports = class Executer extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
-        this.energy = 8;
+        this.energy = 10;
         this.directions = [
           [this.x, this.y - 1],
           [this.x - 1, this.y],
@@ -37,7 +37,7 @@ module.exports = class Executer extends LivingCreature {
             var newExecuter = new Executer(newCell[0], newCell[1], this.index);
             executerArr.push(newExecuter);
             matrix[newCell[1]][newCell[0]] = 5;
-            this.energy = 8
+            this.energy = 10
         }
     }
     move() {

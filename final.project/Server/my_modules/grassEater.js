@@ -2,7 +2,7 @@ var LivingCreature = require("./ancestor")
 module.exports = class GrassEater extends LivingCreature {
   constructor(x, y, index) {
     super(x, y, index);
-    this.energy = 8;
+    this.energy = 10;
     this.directions = [
       [this.x - 1, this.y - 1],
       [this.x, this.y - 1],
@@ -51,7 +51,7 @@ module.exports = class GrassEater extends LivingCreature {
       var newGrassEater = new GrassEater(newCell[0], newCell[1], this.index);
       grassEaterArr.push(newGrassEater);
       matrix[newCell[1]][newCell[0]] = 2;
-      this.energy = 8;
+      this.energy = 10;
     }
   }
   move() {

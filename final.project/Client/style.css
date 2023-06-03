@@ -24,6 +24,7 @@ body{
 	z-index: -1;
 }
 .canvas{
+	margin-top: 25px;
 	margin-left: 33px;
 }
 .header{
@@ -82,17 +83,23 @@ body{
     justify-content: space-around;
 	width: 2500px;
 	display: flex;
+	
 }
 .mng .starter{
-	width: 1250px;
+	width: 1250x;
 	margin-right: 0px;
 }
 .mng .weath{
 	width: 1250px;
 	margin-right: 0px;
 }
+.weath ul{
+	display: flex;
+	width: 1250px;
+	justify-content: space-around;
+}
 
-.stat ul, .weath ul{
+.stat ul{
 	display: flex;
 	width: 1250px;
 	justify-content: space-around;
@@ -138,6 +145,13 @@ body{
 }
 .stat ul .exc{
 	background-color: #eb0000;
+	padding: 8px 27px 8px 27px;
+	border-radius: 5px;
+	margin-left: 0px;
+	box-shadow: 3px 3px #c5c6c7;
+}
+.stat ul .dmn{
+	background-color: #1d0230;
 	padding: 8px 27px 8px 27px;
 	border-radius: 5px;
 	margin-left: 0px;

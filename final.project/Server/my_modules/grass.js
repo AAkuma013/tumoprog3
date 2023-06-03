@@ -37,7 +37,7 @@ module.exports = class Grass extends LivingCreature {
 
       this.multiply = 0;
       this.newCellCount++
-      socket.emit('newCellCount', this.newCellCount);
+      //socket.emit('newCellCount', this.newCellCount);
       // Invoke the callback function with the newCellCount value
       
     }

@@ -54,6 +54,7 @@ function my_draw(matrix) {
     var wld = 0;
     var zmb = 0;
     var exc = 0;
+    var dmn = 0
     // var count = 0
     
     // socket.on("recieveMul", () =>{
@@ -87,6 +88,7 @@ function my_draw(matrix) {
             { y: wld, label: "WILD" },
             { y: zmb, label: "ZOMBIE" },
             { y: exc, label: "EXECUTER" },
+            { y: dmn, label: "DEMON" },
             ],
         },
         ],
@@ -169,7 +171,11 @@ function my_draw(matrix) {
             } else if (matrix[y][x] === 5) {
                 fill("#eb0000");
                 exc++;
+            }else if (matrix[y][x] === 6) {
+                fill("#1d0230");
+                dmn++;
             }
+            
             rect(x * side, y * side, side, side); //client
             
         
@@ -182,16 +188,18 @@ function my_draw(matrix) {
             document.getElementById("wld").innerHTML = "wild: " + wld;
             document.getElementById("zmb").innerHTML = "zombie: " + zmb;
             document.getElementById("exc").innerHTML = "executer: " + exc;
+            document.getElementById("dmn").innerHTML = "demon: " + dmn;
             //text(x + " " + y, x * side + side / 2, y * side + side / 2);
         }
     }
     
     chart.options.data[0].dataPoints = [
-        { y: grr, label: "Grass" },
-        { y: grrEtt, label: "GrassEater" },
-        { y: wld, label: "Wild" },
-        { y: zmb, label: "Zombie" },
-        { y: exc, label: "Executer" },
+        { y: grr, label: "GRASS" },
+        { y: grrEtt, label: "GRASSEATER" },
+        { y: wld, label: "WILD" },
+        { y: zmb, label: "ZOMBIE" },
+        { y: exc, label: "EXECUTER" },
+        { y: dmn, label: "DEMON" },
     ];
     chart.options.willReadFrequently = true
     chart.render()

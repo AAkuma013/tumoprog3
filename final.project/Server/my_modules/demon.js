@@ -173,22 +173,39 @@ module.exports = class Demon extends LivingCreature {
         
         //let zombie = zombies[Math.floor(Math.random()*zombies.length)]
         
-        if (newVoids >= 3) {
+        if (zombies.length >= 4) {
             this.energy++
-            for (let j = 0; j < darkGrassArr.length; j++) {
-                let darkGrass = newVoids[j]
-                let newX = darkGrass[0]
-                let newY = darkGrass[1]
-                matrix[darkGrass[1]][darkGrass[0]] = 0
+            for (let j = 0; j < zombies.length; j++) {
+                let zombie = zombies[j]
+                let newX = zombie[0]
+                let newY = zombie[1]
+                matrix[zombie[1]][zombie[0]] = 0
                 
-                for (var i in darkGrassArr) {
-                    if (newX == darkGrassArr[i].x && newY ==darkGrassArr[i].y) {
-                        darkGrassArr.splice(i, 1);
+                for (var i in zombieArr) {
+                    if (newX == zombieArr[i].x && newY ==zombieArr[i].y) {
+                        zombieArr.splice(i, 1);
                         break;
-                        }
                     }
                 }
-                this.move()
+            }
+            this.move() 
+        
+        // if (newVoids >= 3) {
+        //     this.energy++
+        //     for (let j = 0; j < darkGrassArr.length; j++) {
+        //         let darkGrass = newVoids[j]
+        //         let newX = darkGrass[0]
+        //         let newY = darkGrass[1]
+        //         matrix[darkGrass[1]][darkGrass[0]] = 0
+                
+        //         for (var i in darkGrassArr) {
+        //             if (newX == darkGrassArr[i].x && newY ==darkGrassArr[i].y) {
+        //                 darkGrassArr.splice(i, 1);
+        //                 break;
+        //                 }
+        //             }
+        //         }
+        //         this.move()
             
             // matrix[this.y][this.x] = 0
             // let newX = zombie[0]
@@ -206,22 +223,6 @@ module.exports = class Demon extends LivingCreature {
             if (this.energy >= 12) {
                 //this.mul()
             }
-        }else if (zombies.length >= 4) {
-            this.energy++
-            for (let j = 0; j < zombies.length; j++) {
-                let zombie = zombies[j]
-                let newX = zombie[0]
-                let newY = zombie[1]
-                matrix[zombie[1]][zombie[0]] = 0
-                
-                for (var i in zombieArr) {
-                    if (newX == zombieArr[i].x && newY ==zombieArr[i].y) {
-                        zombieArr.splice(i, 1);
-                        break;
-                    }
-                }
-            }
-            this.move() 
         }else if (executers) {
             //this.energy= this.energy -0.5
             for (let i = 0; i < executers.length; i++) {
@@ -242,6 +243,24 @@ module.exports = class Demon extends LivingCreature {
                 }
             }
             this.move()
+        
+        }else if (newVoids >= 3) {
+                this.energy++
+                for (let j = 0; j < darkGrassArr.length; j++) {
+                    let darkGrass = newVoids[j]
+                    let newX = darkGrass[0]
+                    let newY = darkGrass[1]
+                    matrix[darkGrass[1]][darkGrass[0]] = 0
+                    
+                    for (var i in darkGrassArr) {
+                        if (newX == darkGrassArr[i].x && newY ==darkGrassArr[i].y) {
+                            darkGrassArr.splice(i, 1);
+                            break;
+                            }
+                        }
+                    }
+                    this.move()
+                
         // else if (grass) {
         //     matrix[this.y][this.x] = 0;
         //     let newX = grass[0];

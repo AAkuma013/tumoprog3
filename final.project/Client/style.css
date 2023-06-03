@@ -96,6 +96,7 @@ body{
 }
 .mng .starter{
 	width: 1630x;
+	height: 240px;
 	margin-right: 0px;
 }
 .mng .weath{
@@ -205,6 +206,20 @@ body{
 	background-color: white;
 	box-shadow: 5px 5px whitesmoke;
 }
+
+.weath ul .boom{
+	background-color: yellow;
+	box-shadow: 5px 5px whitesmoke;
+}
+.weath ul .flash{
+	background-color: lightseagreen;
+	box-shadow: 5px 5px whitesmoke;
+}
+.weath ul .spawn{
+	background-color: rgb(170, 38, 82);
+	box-shadow: 5px 5px whitesmoke;
+}
+
 .staRt{
 	background-color: #66fcf1;
 	padding: 0px 25px;
@@ -244,6 +259,10 @@ body{
 .weath ul li .autumn:hover{background-color: orangered}
 .weath ul li .winter:hover{background-color: gray}
 
+.weath ul li .boom:hover{background-color: red}
+.weath ul li .flash:hover{background-color: orange}
+.weath ul li .spawn:hover{background-color: blueviolet}
+
 .weath ul li .spring:active {
 	background-color: green;
 	box-shadow: 3px 5px darkgreen;
@@ -265,6 +284,21 @@ body{
 	transform: translateY(4px);
 }
 
+.weath ul li .boom:active {
+	background-color: rgb(225, 3, 3);
+	box-shadow: 3px 5px rgb(97, 97, 97);
+	transform: translateY(4px);
+}
+.weath ul li .flash:active {
+	background-color: orangered;
+	box-shadow: 3px 5px rgb(97, 97, 97);
+	transform: translateY(4px);
+}
+.weath ul li .spawn:active {
+	background-color: purple;
+	box-shadow: 3px 5px rgb(97, 97, 97);
+	transform: translateY(4px);
+}
 
 .mycanvas{
 	margin-left: 20px;

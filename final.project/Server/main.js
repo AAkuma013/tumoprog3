@@ -164,6 +164,7 @@ function kerparner(qanak, kerpar) {
 ///const filePath = './package.json';
 io.on('connection', function (socket) {
     var intervalID = null;
+    //matrix = []
     console.log("jello");
     socket.emit("my_matrix", matrix )
     socket.on("start",start)
@@ -263,6 +264,15 @@ io.on('connection', function (socket) {
         winterDir();
         intervalID = setInterval(winter, 350);
     });
+    socket.on("boom",()=>{
+        for (let i = 10; i < 100; i++) {
+            for (let j = 10; j < 100; j++) {
+                matrix[j][i] = 0
+            }
+            
+        }
+        console.log("DONE");
+    })
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  // socket.on("spring", function(){

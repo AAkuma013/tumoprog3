@@ -47,6 +47,13 @@ side = 50;
 //   }
 // grassArr = []
 // var finalCount = 0
+
+function boom(lalala){
+    socket.emit("boom",lalala)
+    console.log("SENDED");
+    //return 0
+}
+
 function my_draw(matrix) {
     side = 50;
     var grr = 0;
@@ -57,6 +64,7 @@ function my_draw(matrix) {
     var dmn = 0;
     var drg = 0;
     var stt = 0;
+    
     // var count = 0
     
     // socket.on("recieveMul", () =>{

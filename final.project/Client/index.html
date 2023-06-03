@@ -103,6 +103,9 @@
             <p>3.Wild-ուտում է և՛ խոտ, և՛ խոտակեր</p>
             <p>4.Zombie-շարժվում է շախմատի փղի նման` անկյունագծերով(կախված եղանակից կարող է փոփոխվել) և իր հարևան վանդակում գտնվող Grass-ին կամ Wild-ին դարձնում է զոմբի, խոտի մեջ չի կարող շարժվել</p>
             <p>5.Executer-շարժվում է շախմատի նավակի նման(կախված եղանակից կարող է փոփոխվել),կարող է անցնել խոտի միջով այն ոչնչացնելով,նպատակը` վերացնել զոմբիներին</p>
+            <p>6.Demon-եթե իր կողքին կան երեք կամ ավել darkGrass` նրանց ոչնչացնում է,եթե չորս կողմը zombie-ներ են ապա բոլոր չորսին ոչնչացնում է,իսկ եթե executer-ներ են կպնում նրան ապա դառնում են խոտ</p>
+            <p>7.Statue-միշտ կանգուն է, երբ տեսնում է grassEater դարձնում է նրան executer</p>
+            <p>8.darkGrass-եթե տեսնում է zombie դարձնում է նրան statue, եթե հարեվան վանդակներում wild-եր կան դարձնում է նրանց darkGrass</p>
         </div>
         <div class="mng">
             <div class="starter">
@@ -129,14 +132,12 @@
                     <li><button onclick="retrn('#ffb01c')" id="autumn" class="autumn">Autumn</button></li>
                     <li><button onclick="retrn('white')" id="winter" class="winter">Winter</button></li>
                 </ul>
-                <h1 id="irad" class="irad">Click Event</h1>
+                <!-- <h1 id="irad" class="irad">Click Event</h1>
                 <ul>
-                    <li><button class="boom">Boom</button></li>
-                    <li><button class="flash">Flash</button></li>
-                    
-
-                    <li></li>
-                </ul>
+                    <li><button onclick="boom(boom)" id="boom" class="boom">Boom</button></li>
+                    <li><button id="flash" class="flash">Flash</button></li>
+                    <li><button id="spawn" class="spawn">spawn</button></li>
+                </ul> -->
             </div>
         </div>
     </div>
